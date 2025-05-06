@@ -9,7 +9,7 @@ Format: Parquet (~19 GB compressed)
 
 Services: Uber, Lyft, Via, Juno
 
-📄 Data Dictionary PDF
+[Data Dictionary (PDF)](data_dictionary_trip_records_hvfhs.pdf)
 
 Exploratory Data Analysis (EDA)
 Loaded and processed using PySpark on the San Diego Supercomputer (SDSC)
