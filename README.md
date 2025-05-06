@@ -40,7 +40,7 @@ Selected relevant features for analysis
 
 The full NYC For-Hire Vehicle (FHV) trip dataset can be accessed on Kaggle:
 
-📦 [NYC TLC Trip Record Data on Kaggle](https://www.kaggle.com/datasets/nyc-tlc/nyc-fhv-trip-data)
+[NYC TLC Trip Record Data on Kaggle](https://www.kaggle.com/datasets/jeffsinsel/nyc-fhvhv-data)
 
 
 Contributers
