@@ -31,6 +31,13 @@ Dropped rows with nulls in trip_miles, trip_time, driver_pay
 
 Removed trips with 0 distance or 0 fare
 
+
+Contributers
+
+@RezaMoghadam
+@avakilov
+@ddkrutkin
+@kpacker77
 Filtered outliers to improve data quality
 
 Selected relevant features for analysis
