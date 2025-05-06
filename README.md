@@ -1,9 +1,9 @@
-NYC FHV Trip Data Analysis – DSC 232 Group Project
-Project Overview
+### NYC FHV Trip Data Analysis – DSC 232 Group Project
+## Project Overview
 This project explores New York City's High Volume For-Hire Vehicle (FHV) data (Uber, Lyft, etc.) from 2019 to 2022 using PySpark for large-scale analysis.
 
 
-Dataset
+## Dataset
 Source: NYC Taxi & Limousine Commission
 
 Format: Parquet (~19 GB compressed)
@@ -12,7 +12,7 @@ Services: Uber, Lyft, Via, Juno
 
 [Data Dictionary (PDF)](data_dictionary_trip_records_hvfhs.pdf)
 
-Exploratory Data Analysis (EDA)
+## Exploratory Data Analysis (EDA)
 
 
 Loaded and processed using PySpark on the San Diego Supercomputer (SDSC)
@@ -24,7 +24,7 @@ Explored patterns in trip duration, distance, tips, and driver pay
 Visualized demand by time, trip metrics, and correlations
 
 
-Preprocessing Steps
+## Preprocessing Steps
 
 
 Dropped rows with nulls in trip_miles, trip_time, driver_pay
@@ -43,7 +43,7 @@ The full NYC For-Hire Vehicle (FHV) trip dataset can be accessed on Kaggle:
 [NYC TLC Trip Record Data on Kaggle](https://www.kaggle.com/datasets/jeffsinsel/nyc-fhvhv-data)
 
 
-Contributers
+## Contributers
 
 [@RezaMoghadam](https://github.com/RezaMoghadam)
 [@avakilov](https://github.com/avakilov)
