@@ -42,11 +42,17 @@ Selected relevant features for analysis
 
 ## Milestone Three
 Linear Regression Model
+
+## Original Full Pipeline Notebook
+Preprocessing of data  
+Training a LR model  
+Analyzing the features and their effects
 ## Step One Notebook
-Training of first model  
+Using the data after Milestone 2 preprocessing without the preprocessing performed under original step  
+Training of model  
 Reviewing the performance  
 ## Step Two Notebook
-Major preprocessing based on Step One model performance  
+Major preprocessing based on Original step and step one observations  
 Training on the data  
 Reviewing the improvements  
 Further preprocessing  
