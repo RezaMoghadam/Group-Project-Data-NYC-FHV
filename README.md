@@ -41,11 +41,12 @@ Selected relevant features for analysis
 
 
 ## Milestone Three
+Linear Regression Model
 ## Step One Notebook
-Training of first Model  
-Reviewing the Performance  
+Training of first model  
+Reviewing the performance  
 ## Step Two Notebook
-Major Preprocessing based on Step One model performance  
+Major preprocessing based on Step One model performance  
 Training on the data  
 Reviewing the improvements  
 Further preprocessing  
