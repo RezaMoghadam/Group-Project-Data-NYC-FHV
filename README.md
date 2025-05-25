@@ -1,4 +1,6 @@
 ### NYC FHV Trip Data Analysis – DSC 232 Group Project
+
+## Milestone One
 ## Project Overview
 This project explores New York City's High Volume For-Hire Vehicle (FHV) data (Uber, Lyft, etc.) from 2019 to 2022 using PySpark for large-scale analysis.
 
@@ -12,6 +14,7 @@ Services: Uber, Lyft, Via, Juno
 
 [Data Dictionary (PDF)](data_dictionary_trip_records_hvfhs.pdf)
 
+## Milestone Two 
 ## Exploratory Data Analysis (EDA)
 
 
@@ -34,6 +37,21 @@ Removed trips with 0 distance or 0 fare
 Filtered outliers to improve data quality
 
 Selected relevant features for analysis
+
+
+
+## Milestone Three
+## Step One Notebook
+Training of first Model
+Reviewing the Performance
+## Step Two Notebook
+Major Preprocessing based on Step One model performance
+Training on the data
+Reviewing the improvements
+Further preprocessing
+Training on the data
+Reviewing the improvements
+Conclusion on Milestone 3
 
 
 ## Data Download
