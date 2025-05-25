@@ -48,11 +48,11 @@ Preprocessing of data
 Training a LR model  
 Analyzing the features and their effects
 ## Step One Notebook
-Using the data after Milestone 2 preprocessing without the preprocessing performed under original step  
+Using the data after Milestone 2 without further preprocessing
 Training of model  
 Reviewing the performance  
 ## Step Two Notebook
-Major preprocessing based on Original step and step one observations  
+Major preprocessing based on observations from Original and Step One  
 Training on the data  
 Reviewing the improvements  
 Further preprocessing  
