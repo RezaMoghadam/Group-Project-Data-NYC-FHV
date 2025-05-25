@@ -42,16 +42,16 @@ Selected relevant features for analysis
 
 ## Milestone Three
 ## Step One Notebook
-Training of first Model
-Reviewing the Performance
+Training of first Model  
+Reviewing the Performance  
 ## Step Two Notebook
-Major Preprocessing based on Step One model performance
-Training on the data
-Reviewing the improvements
-Further preprocessing
-Training on the data
-Reviewing the improvements
-Conclusion on Milestone 3
+Major Preprocessing based on Step One model performance  
+Training on the data  
+Reviewing the improvements  
+Further preprocessing  
+Training on the data  
+Reviewing the improvements  
+Conclusion on Milestone 3  
 
 
 ## Data Download
