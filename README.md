@@ -93,6 +93,52 @@ Below cell installs the packages inside jupyter notebook
 %pip install pyspark pandas matplotlib seaborn
 ```
 
+Below cell downloads the files to local Data folder
+```python
+# Setup & conditional install/download
+import os
+import sys
+import subprocess
+from pathlib import Path
+
+# Where the data is expected to be downloaded for this notebook
+data_dir = Path.cwd() / "Data"
+
+if not data_dir.exists():
+    # Install the Kaggle CLI into this same env
+    subprocess.run(
+        [sys.executable, "-m", "pip", "install", "--quiet", "kaggle"],
+        check=True
+    )
+
+    # Create the Data/ directory
+    data_dir.mkdir(parents=True, exist_ok=True)
+
+    # Tell Kaggle CLI where to look for kaggle.json (in the notebook folder)
+    os.environ['KAGGLE_CONFIG_DIR'] = str(Path.cwd()) # Change this if you want to use a different location
+
+    # Verify kaggle.json is in place
+    kaggle_json = Path(os.environ['KAGGLE_CONFIG_DIR']) / "kaggle.json"
+
+    if not kaggle_json.exists():
+        raise FileNotFoundError(
+            f"Couldn't find kaggle.json at {kaggle_json}. Download it from your Kaggle account (API section) and place it there."
+        )
+
+    # Download & unzip into Data/
+    subprocess.run(
+        [
+            "kaggle", "datasets", "download",
+            "-d", "jeffsinsel/nyc-fhvhv-data",
+            "-p", str(data_dir),
+            "--unzip"
+        ],
+        check=True
+    )
+    print("Kaggle CLI installed, data downloaded into Data/ directory.")
+else:
+    print("Data directory already exists. Skipping install & download.")
+```
 The full NYC For-Hire Vehicle (FHV) trip dataset can be accessed on Kaggle:
 
 [NYC TLC Trip Record Data on Kaggle](https://www.kaggle.com/datasets/jeffsinsel/nyc-fhvhv-data)
