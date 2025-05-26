@@ -62,9 +62,32 @@ Conclusion on Milestone 3
 
 
 ## Environmental Setup and Data Download
+We use PySpark to process the NYC For-Hire Vehicle (FHV) dataset on SDSC's Expanse platform.  
+The environment is configured with increased memory and executor resources to handle the large-scale data efficiently.
+
+This setup includes:
+- PySpark 
+- Spark session initialization with custom memory and executor settings
+- Configuration for parallel processing
+
+```python
+import pyspark
+print("Using PySpark version:", pyspark.__version__)
+
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder \
+    .config("spark.driver.memory", "8g") \
+    .config("spark.executor.memory", "8g") \
+    .config("spark.executor.instances", "5") \
+    .config("spark.executor.cores", "2") \
+    .getOrCreate()
+
 
 Only the Notebook for Milestone 2 includes the necessary packages and a cell to download the data locally.  
-The rest of the notebooks assume that the data is in the local (Data) folder. 
+The rest of the notebooks assume that the data is in the local (Data) folder.
+
+Below cell installs the packages 
 
 The full NYC For-Hire Vehicle (FHV) trip dataset can be accessed on Kaggle:
 
