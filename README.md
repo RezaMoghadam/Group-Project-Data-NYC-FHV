@@ -42,6 +42,14 @@ The full NYC For-Hire Vehicle (FHV) trip dataset can be accessed on Kaggle:
 
 [NYC TLC Trip Record Data on Kaggle](https://www.kaggle.com/datasets/jeffsinsel/nyc-fhvhv-data)
 
+## Regrade Request Update
+After the announcement on Canvas regarding re-grade request, we updated our Milestone 2 requirements in the following ways:
+- Created a dedicated branch for Milestone 2
+- Updated our Jupyter notebook to pip install critical packages (if someone were to run the notebook outside of SDSC and doesn't have the required packages)
+- Updated our Jupyter notebook to have an optional lightweight data install cell. We give the users two options to obtain the source data:
+    1. Manually creating a "Data" directory and moving the parquet files into that directory
+    2. Running our in-notebook cell which will create the directory and download the source data via Kaggle API call. The notebook assumes that if the "Data" directory already exists, then the user has obtained the data manually. 
+
 
 ## Contributers
 
