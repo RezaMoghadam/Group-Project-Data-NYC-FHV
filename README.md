@@ -61,7 +61,10 @@ Reviewing the improvements
 Conclusion on Milestone 3  
 
 
-## Data Download
+## Environmental Setup and Data Download
+
+Only the Notebook for Milestone 2 includes the necessary packages and a cell to download the data locally.  
+The rest of the notebooks assume that the data is in the local (Data) folder. 
 
 The full NYC For-Hire Vehicle (FHV) trip dataset can be accessed on Kaggle:
 
