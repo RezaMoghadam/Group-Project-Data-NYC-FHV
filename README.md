@@ -87,7 +87,7 @@ spark = SparkSession.builder \
 Only the Notebook for Milestone 2 includes the necessary packages and a cell to download the data locally.  
 The rest of the notebooks assume that the data is in the local (Data) folder.
 
-Below cell installs the packages 
+Below cell installs the packages inside jupyter notebook 
 
 ```python
 %pip install pyspark pandas matplotlib seaborn
