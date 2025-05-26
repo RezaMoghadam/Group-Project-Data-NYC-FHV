@@ -139,6 +139,7 @@ if not data_dir.exists():
 else:
     print("Data directory already exists. Skipping install & download.")
 ```
+
 The full NYC For-Hire Vehicle (FHV) trip dataset can be accessed on Kaggle:
 
 [NYC TLC Trip Record Data on Kaggle](https://www.kaggle.com/datasets/jeffsinsel/nyc-fhvhv-data)
