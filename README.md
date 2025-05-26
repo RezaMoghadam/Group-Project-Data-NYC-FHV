@@ -82,12 +82,16 @@ spark = SparkSession.builder \
     .config("spark.executor.instances", "5") \
     .config("spark.executor.cores", "2") \
     .getOrCreate()
-
+```
 
 Only the Notebook for Milestone 2 includes the necessary packages and a cell to download the data locally.  
 The rest of the notebooks assume that the data is in the local (Data) folder.
 
 Below cell installs the packages 
+
+```python
+%pip install pyspark pandas matplotlib seaborn
+```
 
 The full NYC For-Hire Vehicle (FHV) trip dataset can be accessed on Kaggle:
 
