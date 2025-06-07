@@ -1,11 +1,9 @@
-### NYC FHV Trip Data Analysis – DSC 232 Group Project
-
-## Milestone One
+# NYC FHV Trip Data Analysis – DSC 232 Group Project
 ## Project Overview
-This project explores New York City's High Volume For-Hire Vehicle (FHV) data (Uber, Lyft, etc.) from 2019 to 2022 using PySpark for large-scale analysis.
+This project analyzes New York City’s High Volume For-Hire Vehicle (FHV) trip data — including Uber and Lyft — from 2019 to 2022 using PySpark for large-scale processing. The primary objective is to identify key factors that influence driver earnings across time, location, and trip characteristics. By uncovering these patterns, the analysis can provide insights into fair pricing for riders and optimal decision-making strategies for drivers in an urban landscape that extends beyond New York City.
+## Milestone One
 
-
-## Dataset
+### Dataset
 Source: NYC Taxi & Limousine Commission
 
 Format: Parquet (~19 GB compressed)
@@ -15,7 +13,7 @@ Services: Uber, Lyft, Via, Juno
 [Data Dictionary (PDF)](data_dictionary_trip_records_hvfhs.pdf)
 
 ## Milestone Two 
-## Exploratory Data Analysis (EDA)
+### Exploratory Data Analysis (EDA)
 
 
 Loaded and processed using PySpark on the San Diego Supercomputer (SDSC)
@@ -38,20 +36,24 @@ Filtered outliers to improve data quality
 
 Selected relevant features for analysis
 
+![Example Chart](ride_vol_hourly.png)
+We can quickly see that Monday-Friday from about 1:00 AM to about 6:00 AM is the lowest ride volume of the week. Consequently, Friday and Saturday nights (6:00PM to approximately 1:00 AM the next morning) have the highest volume of the week. Trends also show that weekends are busier and during the weekdays, evenings are typically the busiest though there are brief spikes in the monring. This is likely commuters coming to and from work.
 
+![Example Chart](avg_dist_and_fare.png)
+Comparing average fare to average trip miles across the span of the day we see average fare tends to follow the average distance trend. Then, at about 11:00 AM, average trip distance increases until about 3:00 PM and then falls until about 7:00 PM. Meanwhile, average fare remains relatively constant at about $4.30.
 
 ## Milestone Three
 Linear Regression Model
 
-## Original Full Pipeline Notebook
+# Original Full Pipeline Notebook
 Preprocessing of data  
 Training a LR model  
 Analyzing the features and their effects
-## Step One Notebook
+# Step One Notebook
 Using the data after Milestone 2 without further preprocessing
 Training of model  
 Reviewing the performance  
-## Step Two Notebook
+# Step Two Notebook
 Major preprocessing based on observations from Original and Step One  
 Training on the data  
 Reviewing the improvements  
