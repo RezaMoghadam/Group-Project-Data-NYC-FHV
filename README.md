@@ -73,6 +73,7 @@ To support our exploratory data analysis (EDA) and provide visual insights into 
 
 Figure 1: Number of Rides per Hour of Day
 
+![Example Chart](rides_per_hour.png)
 This line graph illustrates the distribution of ride volumes across different hours of the day. The data reveals distinct peaks during morning (8–9 AM) and evening (5–6 PM) hours, corresponding to typical commuting times. A noticeable dip occurs during late-night hours, reflecting reduced demand.
 
 Figure 2: Ride Volume by Hour and Weekday
@@ -88,14 +89,17 @@ This dual-axis chart plots average trip distances and corresponding fares agains
 
 Figure 4: Trip Distance vs. Tip Amount
 
+![Example Chart](distance_vs_tips.png)
 A scatter plot analyzing the relationship between trip distance and tip amounts. The visualization indicates a positive correlation, where longer trips tend to result in higher tips, although variability exists.
 
 Figure 5: Trip Duration vs. Driver Pay
 
+![Example Chart](time_vs_DriverPay.png)
 This scatter plot examines how trip duration impacts driver earnings. The data suggests that longer trip durations generally lead to increased driver pay, but with diminishing returns beyond a certain point.
 
 Figure 6: Trip Distance vs. Driver Pay
 
+![Example Chart](TripDist_vs_DriverPay.png)
 A scatter plot depicting the association between trip distance and driver compensation. A strong positive correlation is evident, highlighting that longer distances contribute significantly to driver earnings.
 
 Each figure includes appropriate legends and annotations to enhance interpretability. These visualizations collectively provide a comprehensive overview of ride patterns, financial aspects, and temporal dynamics within NYC's for-hire vehicle sector.
