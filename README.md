@@ -36,17 +36,11 @@ Filtered outliers to improve data quality
 
 Selected relevant features for analysis
 
-![Example Chart](ride_vol_hourly.png)
-We can quickly see that Monday-Friday from about 1:00 AM to about 6:00 AM is the lowest ride volume of the week. Consequently, Friday and Saturday nights (6:00PM to approximately 1:00 AM the next morning) have the highest volume of the week. Trends also show that weekends are busier and during the weekdays, evenings are typically the busiest though there are brief spikes in the monring. This is likely commuters coming to and from work.
-
-![Example Chart](avg_dist_and_fare.png)
-Comparing average fare to average trip miles across the span of the day we see average fare tends to follow the average distance trend. Then, at about 11:00 AM, average trip distance increases until about 3:00 PM and then falls until about 7:00 PM. Meanwhile, average fare remains relatively constant at about $4.30.
-
 ## Milestone Three
 Linear Regression Model
 
 ### Original Full Pipeline Notebook
-Preprocessing of data  
+Preprocessing of data (removed outliers based on $\pm$ 1.5 $\cdot$ IQR (Interquartile Range)) <br>
 Training a LR model  
 Analyzing the features and their effects
 ### Step One Notebook
@@ -70,7 +64,7 @@ Written Report
 1. Introduction to the project
 Our project focuses on analyzing the NYC High Volume For-Hire Vehicle (HVFHV) trip dataset, which contains detailed records of ride-hailing trips completed by Uber, Lyft, Via, and Juno. We selected this dataset because of its richness in real-world transportation data and its potential to uncover valuable insights into urban mobility patterns. The dataset spans millions of trips across New York City and captures essential details such as pickup/drop-off times, trip distances, driver pay, tips, and more.
 
-This project is particularly compelling because it blends data science with one of the most widely used services in urban life: ride-sharing. Ride-hailing services have dramatically transformed how people commute in large cities, and understanding their behavior through data allows us to identify trends, inefficiencies, and opportunities for optimization. Having a good predictive model in this domain can yield broad societal and economic impacts. For example, it can help ride-sharing platforms optimize driver allocation, reduce passenger wait times, and improve fare structures. It also supports city planners in managing traffic flow and infrastructure development. Moreover, accurate prediction of fares and driver earnings contributes to fairness and transparency within gig economy platforms.
+This project is particularly compelling because it blends data science with one of the most widely used services in urban life: ride-sharing. Ride-hailing services have dramatically transformed how people commute in large cities, and understanding their behavior through data allows us to identify trends, inefficiencies, and opportunities for optimization. Having a good predictive model in this domain can yield broad societal and economic impacts. For example, it can help ride-sharing platforms optimize driver allocation, reduce passenger wait times, and improve fare structures. It also supports city planners in managing traffic flow and infrastructure development. Moreover, accurate prediction of fares and driver earnings contribute to fairness and transparency within gig economy platforms.
 
 Our project aims to explore key patterns in ride-sharing behavior using visual analysis and set the stage for potential predictive modeling. Insights derived from this work can serve as a foundation for further machine learning applications in transportation and mobility services.
 
@@ -83,10 +77,13 @@ This line graph illustrates the distribution of ride volumes across different ho
 
 Figure 2: Ride Volume by Hour and Weekday
 
-A heatmap showcasing ride volumes segmented by hour and day of the week. Weekdays exhibit higher ride volumes during rush hours, while weekends show increased activity in the late evening, indicating shifts in rider behavior based on the day.
+![Example Chart](ride_vol_hourly.png)
+We can quickly see that Monday-Friday from about 1:00 AM to about 6:00 AM is the lowest ride volume of the week. Consequently, Friday and Saturday nights (6:00PM to approximately 1:00 AM the next morning) have the highest volume of the week. Trends also show that weekends are busier and during the weekdays, evenings are typically the busiest though there are brief spikes in the monring. This is likely commuters coming to and from work..
 
-Figure 3: Average Trip Distance and Fare by Hour
+Figure 3: Average Trip Distance and Average Fare by Hour
 
+![Example Chart](avg_dist_and_fare.png)
+Comparing average fare to average trip miles across the span of the day we see average fare tends to follow the average distance trend. Then, at about 11:00 AM, average trip distance increases until about 3:00 PM and then falls until about 7:00 PM. Meanwhile, average fare remains relatively constant at about $4.30.
 This dual-axis chart plots average trip distances and corresponding fares against each hour of the day. Longer trips and higher fares are observed during off-peak hours, suggesting that riders may travel longer distances when traffic is lighter.
 
 Figure 4: Trip Distance vs. Tip Amount
@@ -195,7 +192,7 @@ Aryslan Vakilov
 Title: Coding & Technical Writer
 Contribution: Aryslan focused on model development, particularly the implementation and evaluation of the Gradient Boosted Trees and Random Forest models. He also conducted extensive exploratory data analysis (EDA) of the RMSE and R2 for model performances, contributed to the visualization components, and authored significant portions of the methods, results, and preparing the written report.
 
-Kyle Parker
+Kyle Packer
 Title: Machine Learning Engineer
 Contribution: Kyle was responsible for experimenting with advanced models such as Linear Regression model. He fine-tuned model parameters and performed comparative performance analysis across models. Kyle also contributed to feature engineering and helped troubleshoot technical issues with data preprocessing.
 
@@ -227,11 +224,11 @@ print("Using PySpark version:", pyspark.__version__)
 
 from pyspark.sql import SparkSession
 
-spark = SparkSession.builder \
-    .config("spark.driver.memory", "8g") \
-    .config("spark.executor.memory", "8g") \
-    .config("spark.executor.instances", "5") \
-    .config("spark.executor.cores", "2") \
+sc = SparkSession.builder \
+    .config("spark.driver.memory", "20g") \
+    .config("spark.executor.memory", "15g") \
+    .config('spark.executor.instances', 4) \
+    .config('spark.executor.cores', 3) \
     .getOrCreate()
 ```
 
