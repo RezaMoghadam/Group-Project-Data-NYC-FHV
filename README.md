@@ -45,15 +45,15 @@ Comparing average fare to average trip miles across the span of the day we see a
 ## Milestone Three
 Linear Regression Model
 
-# Original Full Pipeline Notebook
+### Original Full Pipeline Notebook
 Preprocessing of data  
 Training a LR model  
 Analyzing the features and their effects
-# Step One Notebook
+### Step One Notebook
 Using the data after Milestone 2 without further preprocessing
 Training of model  
 Reviewing the performance  
-# Step Two Notebook
+### Step Two Notebook
 Major preprocessing based on observations from Original and Step One  
 Training on the data  
 Reviewing the improvements  
