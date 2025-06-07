@@ -36,7 +36,11 @@ Filtered outliers to improve data quality
 
 Selected relevant features for analysis
 
+![Example Chart](ride_vol_hourly.png)
+We can quickly see that Monday-Friday from about 1:00 AM to about 6:00 AM is the lowest ride volume of the week. Consequently, Friday and Saturday nights (6:00PM to approximately 1:00 AM the next morning) have the highest volume of the week. Trends also show that weekends are busier and during the weekdays, evenings are typically the busiest though there are brief spikes in the monring. This is likely commuters coming to and from work.
 
+![Example Chart](avg_dist_and_fare.png)
+Comparing average fare to average trip miles across the span of the day we see average fare tends to follow the average distance trend. Then, at about 11:00 AM, average trip distance increases until about 3:00 PM and then falls until about 7:00 PM. Meanwhile, average fare remains relatively constant at about $4.30.
 
 ## Milestone Three
 Linear Regression Model
