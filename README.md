@@ -111,7 +111,20 @@ We began by loading the NYC High Volume For-Hire Vehicle (HVFHV) dataset from 20
 
 2. Preprocessing
 
-We selected key numerical features relevant to ride behavior: pickup_datetime, dropoff_datetime, trip_miles, trip_time, base_passenger_fare, driver_pay, and location IDs. Datetime columns were transformed to extract hour and weekday components. We also performed feature engineering to create useful features like fare_per_mile, and removed outliers based on trip duration and distance. Further preprocessing included converting categorical columns to numerical representations and assembling the feature vector using Spark’s VectorAssembler.
+We selected key numerical features relevant to ride behavior: pickup_datetime, dropoff_datetime, trip_miles, trip_time, base_passenger_fare, driver_pay, and location IDs. Datetime columns were transformed to extract hour and weekday components. We also performed feature engineering to create useful features like fare_per_mile, and removed outliers based on trip duration and distance. Due to our very large amount of data, we used a small sample of the data (5%) to determine bounds for each parameter and remove the outliers.
+```pythong
+def IQR_bounds(df, columns):
+    quantiles = {
+        col: df.approxQuantile(col, [0.25, 0.75], 0.01)
+        for col in columns
+    }
+    bounds = {}
+    for col, (q1, q3) in quantiles.items():
+        iqr = q3 - q1
+        bounds[col] = (q1 - 1.5 * iqr, q3 + 1.5 * iqr)
+    return bounds
+```
+Further preprocessing included converting categorical columns to numerical representations and assembling the feature vector using Spark’s VectorAssembler.
 
 3. Model Training:
 
