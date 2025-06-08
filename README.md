@@ -127,7 +127,10 @@ def IQR_bounds(df, columns):
 ```
 Further preprocessing included converting categorical columns to numerical representations and assembling the feature vector using Spark’s VectorAssembler.  
 
-![Example Chart](Linear%20Regression%20Predicted%20VS%20Actual%20bfore%20zeros.png)
+One step that elped preprocessing a lot was dicovery of the zero values. The training data has a lot of zer values for driver pay which are not correct. This results in Model learning to predict zeros on some rides which affects the performance of model. We can view this under the below figure the vertical blue line at zero.
+![Example Chart](Linear%20Regression%20Predicted%20VS%20Actual%20bfore%20zeros.png)  
+
+After removing the zeros under the notebook, the performance of the model improves from RMSE: 3.78 to 2.78.
 
 ![Example Chart](Linear%20Regression%20Predicted%20VS%20Actual%20after%20zeros.png)
 
