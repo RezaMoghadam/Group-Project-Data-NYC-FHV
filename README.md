@@ -127,7 +127,7 @@ def IQR_bounds(df, columns):
 ```
 Further preprocessing included converting categorical columns to numerical representations and assembling the feature vector using Spark’s VectorAssembler.  
 
-![Example Chart](Linear%20Regression%20Predicted%20VS%20Actual%20before%20zeros.png)
+![Example Chart](Linear%20Regression%20Predicted%20VS%20Actual%20bfore%20zeros.png)
 
 ![Example Chart](Linear%20Regression%20Predicted%20VS%20Actual%20after%20zeros.png)
 
