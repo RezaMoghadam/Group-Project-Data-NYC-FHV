@@ -84,7 +84,10 @@ We selected the Linear Regression (LR) model as our baseline because it is simpl
 
 ##### Linear Regression
 We trained a baseline Linear Regression model using Spark’s MLlib to predict driver pay. The model was trained on engineered features such as trip duration, distance, pickup/dropoff zones, and time-of-day indicators. ''' Link to our code'''
-
+Best Linear Regression Parameters:  
+  regParam          = 0.0  
+  elasticNetParam   = 0.0  
+  fitIntercept      = True  
 ##### GBT Regression
 __ADD__
 
