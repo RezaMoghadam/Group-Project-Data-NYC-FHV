@@ -15,38 +15,38 @@ Our project aims to explore key patterns in ride-sharing behavior using visual a
 To support our exploratory data analysis (EDA) and provide visual insights into the NYC High Volume For-Hire Vehicle (HVFHV) trip data, we present the figures below; these visualizations collectively provide a comprehensive overview of ride patterns, financial aspects, and temporal dynamics within NYC's for-hire vehicle sector.
 
 __Figure 1: Number of Rides per Hour of Day__
-![Example Chart](rides_per_hour.png)
+![Rides Per Hour](Figures/rides_per_hour.png)
 This line graph illustrates the distribution of ride volumes across different hours of the day. The data reveals distinct peaks during morning (8–9 AM) and evening (5–6 PM) hours, corresponding to typical commuting times. A noticeable dip occurs during late-night hours, reflecting reduced demand.
 
 <br>
 
 __Figure 2: Ride Volume by Hour and Weekday__
-![Example Chart](ride_vol_hourly.png)
+![Hourly Ride Volume](Figures/ride_vol_hourly.png)
 We can quickly see that Monday-Friday from about 1:00 AM to about 6:00 AM is the lowest ride volume of the week. Consequently, Friday and Saturday nights (6:00PM to approximately 1:00 AM the next morning) have the highest volume of the week. Trends also show that weekends are busier and during the weekdays, evenings are typically the busiest though there are brief spikes in the monring. This is likely commuters coming to and from work.
 
 <br>
 
 __Figure 3: Average Trip Distance and Average Fare by Hour__
-![Example Chart](avg_dist_and_fare.png)
+![Day Hour vs Avg Tip vs Avg Fare](Figures/avg_dist_and_fare.png)
 Comparing average fare to average trip miles across the span of the day we see average fare tends to follow the average distance trend. Then, at about 11:00 AM, average trip distance increases until about 3:00 PM and then falls until about 7:00 PM. Meanwhile, average fare remains relatively constant at about $4.30.
 This dual-axis chart plots average trip distances and corresponding fares against each hour of the day. Longer trips and higher fares are observed during off-peak hours, suggesting that riders may travel longer distances when traffic is lighter.
 
 <br>
 
 __Figure 4: Trip Distance vs. Tip Amount__
-![Example Chart](distance_vs_tips.png)
+![Trip Distance vs Tips](Figures/distance_vs_tips.png)
 A scatter plot analyzing the relationship between trip distance and tip amounts. The visualization indicates a positive correlation, where longer trips tend to result in higher tips, although variability exists.
 
 <br>
 
 __Figure 5: Trip Duration vs. Driver Pay__
-![Example Chart](time_vs_DriverPay.png)
+![Trip Duration vs Driver Pay](Figures/time_vs_DriverPay.png)
 This scatter plot examines how trip duration impacts driver earnings. The data suggests that longer trip durations generally lead to increased driver pay, but with diminishing returns beyond a certain point.
 
 <br>
 
 __Figure 6: Trip Distance vs. Driver Pay__
-![Example Chart](TripDist_vs_DriverPay.png)
+![Trip Distance vs Driver Pay](Figures/TripDist_vs_DriverPay.png)
 A scatter plot depicting the association between trip distance and driver compensation. A strong positive correlation is evident, highlighting that longer distances contribute significantly to driver earnings.
 
 ### 3. Methods Section
@@ -90,10 +90,6 @@ __ADD__
 ### 4. Results Section
 #### Data Exploration
 __ADD__
-#### GBT Regression
-__ADD__
-#### Random Forest Regression
-__ADD__
 
 From our exploratory analysis, we observed the following patterns:
 
@@ -133,13 +129,22 @@ The model was configured with 100 trees and a maximum depth of 10 to balance acc
 Performance Metrics:
 RMSE: 3.0289
 R² Score: 0.8350
-(Additional model results will be added as the project progresses.)
 
-Figures Included:
+#### Model Evaluations
+##### Linear Regression
+__Figure 7: Linear Regression, Actual Pay vs Predicted Pay__
+![Linear Regression Actual Pay vs Predicted Pay](Figures/linear_regression_predicted_vs_actual_pay_after_filter.png)
 
-Predicted vs. Actual Driver Pay (Linear Regression)
+##### GBT Regressor (Gradient Boosted Trees)
+__Figure 8: GBT Regression, Actual Pay vs Predicted Pay__
+![GBT Regression Actual Pay vs Predicted Pay](Figures/gbt_regression_predicted_vs_actual_pay.png)
+
+##### Random Forest Regression
+__Figure 9: Random Forest Regression, Actual Pay vs Predicted Pay__
+![GBT Regression Actual Pay vs Predicted Pay](Figures/rf_regression_predicted_vs_actual_pay.png)
+
+__To-Do:__
 Feature Importance Plot (GBT Regressor)
-Predicted Driver Pay (Random Forest)
 Residual Plot (for all 3 models)
 RMSE comparison bar chart
 
