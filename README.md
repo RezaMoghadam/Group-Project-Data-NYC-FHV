@@ -153,7 +153,7 @@ Training after further cleaning and Parameter Tuning (Due to the resource issues
 __Figure 9: Linear Regression, Actual Pay vs Predicted Pay__
 ![Final Linear Regression Actual Pay vs Predicted Pay](Figures/linear_regression_predicted_vs_actual_pay_after_filter.png)
 
-Scatterplot of actual driver pay vs predicted driver pay utilizing the finalized linear regression model.
+Scatterplot of actual driver pay vs predicted driver pay utilizing the finalized linear regression model.  
 RMSE: 2.78  
 R² Score: 0.852  
 MAE : 1.81  
