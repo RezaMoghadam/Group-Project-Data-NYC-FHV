@@ -199,7 +199,7 @@ This project has been an exercise not just in machine learning, but in iterative
 - __Initial Modeling__: The first model training session also presented practical issues. Our preprocessing step introduced a high number of features, especially due to one-hot encoding of location-based variables. This caused unexpected memory issues and long training times, even with relatively simple models like Linear Regression. We had to restructure our pipeline to process data in batches and manage feature dimensionality more carefully to reduce runtime without sacrificing accuracy.  
 - __Outliers__ Outliers made it very difficult to train a balanced model specially the tip column. Also there were a lot of trips that had the driver pay set at zero.  
 - __Size of Data__: The data contained around 750 million rows which is very hard to train on considering the unavailability of SDSC. Therefore we decided to train on samples of data.  
-- __Training the Full Data__ Training the full data was extremely time consuming, the training on GBT took 7 hours and Random Forest around 12 hours.
+- __Training the Full Data__ Training the full data was extremely time consuming, the training on GBT took 7 hours and Random Forest around 12 hours. Due to the technical difficulties at the super computer center and time constraints, we decided to continiue on with sample data.
 
 ### 6. Conclusion
 Working on this project has been a rewarding experience that offered us insight not only into the inner workings of NYC’s for-hire vehicle economy but also into the practical challenges of real-world machine learning pipelines. If we were to do it again, there are definitely things we would have approached differently.
