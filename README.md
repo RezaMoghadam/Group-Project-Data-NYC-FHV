@@ -157,7 +157,6 @@ Scatterplot of actual driver pay vs predicted driver pay utilizing the finalized
 RMSE: 2.78  
 R² Score: 0.852  
 MAE : 1.81  
-Grid search with cross validation of 3 didn't show improvements.  
 
 
 ##### GBT Regressor (Gradient Boosted Trees)
@@ -167,7 +166,7 @@ __Figure 10: GBT Regression, Actual Pay vs Predicted Pay__
 RMSE: 2.65  
 R² Score: 0.865  
 MAE : 1.629  
-Grid search with cross validation of 3 didn't show improvements.  
+
 
 
 ##### Random Forest Regression
@@ -177,8 +176,7 @@ __Figure 11: Random Forest Regression, Actual Pay vs Predicted Pay__
 RMSE: 2.82  
 R² Score: 0.848  
 MAE : 1.789  
-Grid search with cross validation of 3 improved the RMSE score significantly.  
-New RMSE: 2.63  
+
 
 
 __To-Do:__
@@ -238,7 +236,7 @@ As a team, we collaborated effectively through regular meetings, shared Git repo
 
 ## 8. Final Model, Results Summary and Github Repository
 Final Model and Results Summary
-The Random Forest Regressor was selected as the final model for this project due to its superior performance in predicting driver pay. By leveraging 150 decision trees with a maximum depth of 10, the model effectively captured complex, non-linear relationships in the dataset. Compared to other models such as Linear Regression and Gradient Boosted Trees, the Random Forest achieved the lowest RMSE of 2.63 and the highest R² score of 0.848 , indicating strong predictive accuracy and a well-fitted model. Its robustness to overfitting and ability to handle diverse feature types made it the most effective choice for our ride-sharing trip analysis.
+The Random Forest Regressor was selected as the final model for this project due to its superior performance in predicting driver pay. By leveraging 150 decision trees with a maximum depth of 10, the model effectively captured complex, non-linear relationships in the dataset. Compared to other models such as Linear Regression and Gradient Boosted Trees, the Random Forest achieved the lowest RMSE of 2.82 and the highest R² score of 0.848 , indicating strong predictive accuracy and a well-fitted model. Its robustness to overfitting and ability to handle diverse feature types made it the most effective choice for our ride-sharing trip analysis. Grid search with cross validation of 3 improved the RMSE score of Random Forest to 2.63.  
 
 GitHub Repository
 Your GitHub must be made public by the morning of the next day of the submission deadline. 
