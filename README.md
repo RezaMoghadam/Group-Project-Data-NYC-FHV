@@ -89,11 +89,18 @@ Best Linear Regression Parameters:
   elasticNetParam   = 0.0  
   fitIntercept      = True  
 ##### GBT Regression
-__ADD__
+Best parameters found:  
+  maxDepth     = 7  
+  maxIter      = 50  
+  stepSize     = 0.1  
+  subsamplingRate = 1.0  
 
 ##### Random Forest Regression
-__ADD__
-
+Best Parameters:  
+Best numTrees: 150  
+Best maxDepth: 10  
+Best minInstancesPerNode: 1  
+Best featureSubsetStrategy: auto  
 #### Model Evaluations
 ##### Linear Regression
 
@@ -178,11 +185,7 @@ R² Score: 0.848
 MAE : 1.789  
 Grid search with cross validation of 3 improved the RMSE score significantly.  
 New RMSE: 2.63  
-Best Parameters:  
-Best numTrees: 150  
-Best maxDepth: 10  
-Best minInstancesPerNode: 1  
-Best featureSubsetStrategy: auto  
+
 
 __To-Do:__
 Feature Importance Plot (GBT Regressor)
