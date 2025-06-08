@@ -125,9 +125,13 @@ def IQR_bounds(df, columns):
         bounds[col] = (q1 - 1.5 * iqr, q3 + 1.5 * iqr)
     return bounds
 ```
-Further preprocessing included converting categorical columns to numerical representations and assembling the feature vector using Spark’s VectorAssembler.
+Further preprocessing included converting categorical columns to numerical representations and assembling the feature vector using Spark’s VectorAssembler.  
 
-![Example Chart](Linear Regression Predicted VS Actual after zeros.png)
+
+
+![Example Chart](Linear%20Regression%20Predicted%20VS%20Actual%20after%20zeros.png)
+
+
 3. Model Training:
 
 Linear Regression, GBT Regressor, Random Forest
