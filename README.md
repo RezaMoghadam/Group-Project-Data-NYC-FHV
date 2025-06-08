@@ -127,25 +127,19 @@ Features like trip_miles, trip_time, and tips were scaled using standard normali
 
 Linear Regression was used to model the relationship between trip characteristics and driver pay.
 The model was trained on the full pipeline with all selected features.
-Performance Metrics:
-RMSE: 3.3168
-R² Score: 0.8021
+
 
 ##### GBT Regressor (Gradient Boosted Trees)
 
 Gradient Boosted Trees were implemented to capture non-linear relationships.
 The model was configured with 100 iterations, a learning rate of 0.1, and max depth of 5.
-Performance Metrics:
-RMSE: 3.0578
-R² Score: 0.8318
+
 
 ##### Random Forest Regression
 
 Random Forest was utilized to model complex patterns by aggregating predictions from multiple decision trees.
 The model was configured with 100 trees and a maximum depth of 10 to balance accuracy and overfitting.
-Performance Metrics:
-RMSE: 3.0289
-R² Score: 0.8350
+
 
 #### Model Evaluations
 __Figure 8: Model Performance Comparisons__
@@ -244,7 +238,7 @@ As a team, we collaborated effectively through regular meetings, shared Git repo
 
 ## 8. Final Model, Results Summary and Github Repository
 Final Model and Results Summary
-The Random Forest Regressor was selected as the final model for this project due to its superior performance in predicting driver pay. By leveraging 100 decision trees with a maximum depth of 10, the model effectively captured complex, non-linear relationships in the dataset. Compared to other models such as Linear Regression and Gradient Boosted Trees, the Random Forest achieved the lowest RMSE of 3.0289 and the highest R² score of 0.8350, indicating strong predictive accuracy and a well-fitted model. Its robustness to overfitting and ability to handle diverse feature types made it the most effective choice for our ride-sharing trip analysis.
+The Random Forest Regressor was selected as the final model for this project due to its superior performance in predicting driver pay. By leveraging 150 decision trees with a maximum depth of 10, the model effectively captured complex, non-linear relationships in the dataset. Compared to other models such as Linear Regression and Gradient Boosted Trees, the Random Forest achieved the lowest RMSE of 2.63 and the highest R² score of 0.848 , indicating strong predictive accuracy and a well-fitted model. Its robustness to overfitting and ability to handle diverse feature types made it the most effective choice for our ride-sharing trip analysis.
 
 GitHub Repository
 Your GitHub must be made public by the morning of the next day of the submission deadline. 
