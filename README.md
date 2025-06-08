@@ -53,6 +53,7 @@ A scatter plot depicting the association between trip distance and driver compen
 
 __Figure 7: Initial Linear Regression, Actual Pay vs Predicted Pay__
 ![Initial Linear Regression Actual Pay vs Predicted Pay](Figures/linear_regression_predicted_vs_actual_pay_before_filter.png)
+
 Scatterplot of actual driver pay vs predicted driver pay utilizing the initial linear regression model. During first-pass training, $0 driver pay data points were included during model training, which led to erroneous predictions. 
 
 ### 3. Methods Section
