@@ -138,17 +138,23 @@ RMSE: 3.0289
 R² Score: 0.8350
 
 #### Model Evaluations
+__Figure 8: Model Performance Comparisons__
+![Model Performance Comparisons](Figures/model_performance_comparison.png)
+
+Scatterplot of actual driver pay vs predicted driver pay utilizing the finalized linear regression model.
+
 ##### Linear Regression
-__Figure 8: Linear Regression, Actual Pay vs Predicted Pay__
+__Figure 9: Linear Regression, Actual Pay vs Predicted Pay__
 ![Final Linear Regression Actual Pay vs Predicted Pay](Figures/linear_regression_predicted_vs_actual_pay_after_filter.png)
+
 Scatterplot of actual driver pay vs predicted driver pay utilizing the finalized linear regression model.
 
 ##### GBT Regressor (Gradient Boosted Trees)
-__Figure 9: GBT Regression, Actual Pay vs Predicted Pay__
+__Figure 10: GBT Regression, Actual Pay vs Predicted Pay__
 ![GBT Regression Actual Pay vs Predicted Pay](Figures/gbt_regression_predicted_vs_actual_pay.png)
 
 ##### Random Forest Regression
-__Figure 10: Random Forest Regression, Actual Pay vs Predicted Pay__
+__Figure 11: Random Forest Regression, Actual Pay vs Predicted Pay__
 ![GBT Regression Actual Pay vs Predicted Pay](Figures/rf_regression_predicted_vs_actual_pay.png)
 
 __To-Do:__
