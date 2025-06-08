@@ -179,10 +179,6 @@ MAE : 1.789
 
 
 
-__To-Do:__
-Feature Importance Plot (GBT Regressor)
-Residual Plot (for all 3 models)
-RMSE comparison bar chart
 
 ### 5. Discussion Section
 This project began with the goal of understanding the economic patterns of NYC for-hire vehicle services using predictive modeling. We recognized the broader implications of being able to accurately model ride behavior, particularly in terms of driver compensation and platform efficiency. A well-performing model can be crucial not just for businesses seeking optimization, but also for supporting fair wage systems and identifying potential inequities in pricing or pay distribution.
