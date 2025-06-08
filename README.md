@@ -150,31 +150,31 @@ __Figure 9: Linear Regression, Actual Pay vs Predicted Pay__
 ![Final Linear Regression Actual Pay vs Predicted Pay](Figures/linear_regression_predicted_vs_actual_pay_after_filter.png)
 
 Scatterplot of actual driver pay vs predicted driver pay utilizing the finalized linear regression model.
-RMSE: 2.78
-R² Score: 0.852
-MAE : 1.81
-Grid search with cross validation of 3 didn't show improvements.
+RMSE: 2.78  
+R² Score: 0.852  
+MAE : 1.81  
+Grid search with cross validation of 3 didn't show improvements.  
 
 
 ##### GBT Regressor (Gradient Boosted Trees)
 __Figure 10: GBT Regression, Actual Pay vs Predicted Pay__
 ![GBT Regression Actual Pay vs Predicted Pay](Figures/gbt_regression_predicted_vs_actual_pay.png)
 
-RMSE: 2.65
-R² Score: 0.865
-MAE : 1.629
-Grid search with cross validation of 3 didn't show improvements.
+RMSE: 2.65  
+R² Score: 0.865  
+MAE : 1.629  
+Grid search with cross validation of 3 didn't show improvements.  
 
 
 ##### Random Forest Regression
 __Figure 11: Random Forest Regression, Actual Pay vs Predicted Pay__
 ![GBT Regression Actual Pay vs Predicted Pay](Figures/rf_regression_predicted_vs_actual_pay.png)  
 
-RMSE: 2.82
-R² Score: 0.848
-MAE : 1.789
-Grid search with cross validation of 3 improved the RMSE score significantly.
-New RMSE: 2.63
+RMSE: 2.82  
+R² Score: 0.848  
+MAE : 1.789  
+Grid search with cross validation of 3 improved the RMSE score significantly.  
+New RMSE: 2.63  
 
 __To-Do:__
 Feature Importance Plot (GBT Regressor)
