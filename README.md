@@ -212,7 +212,7 @@ We see an opportunity to turn this into a more interactive dashboard or decision
 In closing, this project reinforced how crucial it is to bridge technical rigor with domain understanding. Data alone isn’t enough—it’s about interpreting that data meaningfully and responsibly. While we made solid progress, there’s plenty of room for future exploration, and we’re excited about where this work could go next.
 
 ### 7. Statement of Collaboration
-__Reza Moghada__
+__Reza Moghadam__
 Title: Team Leader & Coding
 
 Contribution: Reza led the overall project coordination and timeline management. He worked on connecting to the SDSC cluster, preparing the environment, and resolving issues with data uploads and access. He also facilitated communication among team members, managed task delegation, and was actively involved in all parts of the project—from data exploration to model evaluation. He also oversaw the integration of final results and helped refine the written report.
