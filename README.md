@@ -49,6 +49,12 @@ __Figure 6: Trip Distance vs. Driver Pay__
 ![Trip Distance vs Driver Pay](Figures/TripDist_vs_DriverPay.png)
 A scatter plot depicting the association between trip distance and driver compensation. A strong positive correlation is evident, highlighting that longer distances contribute significantly to driver earnings.
 
+<br>
+
+__Figure 7: Initial Linear Regression, Actual Pay vs Predicted Pay__
+![Initial Linear Regression Actual Pay vs Predicted Pay](Figures/linear_regression_predicted_vs_actual_pay_before_filter.png)
+Scatterplot of actual driver pay vs predicted driver pay utilizing the initial linear regression model. During first-pass training, $0 driver pay data points were included during model training, which led to erroneous predictions. 
+
 ### 3. Methods Section
 #### Data Exploration
 
@@ -132,15 +138,16 @@ R² Score: 0.8350
 
 #### Model Evaluations
 ##### Linear Regression
-__Figure 7: Linear Regression, Actual Pay vs Predicted Pay__
-![Linear Regression Actual Pay vs Predicted Pay](Figures/linear_regression_predicted_vs_actual_pay_after_filter.png)
+__Figure 8: Linear Regression, Actual Pay vs Predicted Pay__
+![Final Linear Regression Actual Pay vs Predicted Pay](Figures/linear_regression_predicted_vs_actual_pay_after_filter.png)
+Scatterplot of actual driver pay vs predicted driver pay utilizing the finalized linear regression model.
 
 ##### GBT Regressor (Gradient Boosted Trees)
-__Figure 8: GBT Regression, Actual Pay vs Predicted Pay__
+__Figure 9: GBT Regression, Actual Pay vs Predicted Pay__
 ![GBT Regression Actual Pay vs Predicted Pay](Figures/gbt_regression_predicted_vs_actual_pay.png)
 
 ##### Random Forest Regression
-__Figure 9: Random Forest Regression, Actual Pay vs Predicted Pay__
+__Figure 10: Random Forest Regression, Actual Pay vs Predicted Pay__
 ![GBT Regression Actual Pay vs Predicted Pay](Figures/rf_regression_predicted_vs_actual_pay.png)
 
 __To-Do:__
