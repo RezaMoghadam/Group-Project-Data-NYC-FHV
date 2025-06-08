@@ -104,6 +104,7 @@ A scatter plot depicting the association between trip distance and driver compen
 
 Each figure includes appropriate legends and annotations to enhance interpretability. These visualizations collectively provide a comprehensive overview of ride patterns, financial aspects, and temporal dynamics within NYC's for-hire vehicle sector.
 
+![Example Chart](ride_vol_hourly.png)
 3. Methods Section
 1. Data Exploration
 
@@ -126,6 +127,7 @@ def IQR_bounds(df, columns):
 ```
 Further preprocessing included converting categorical columns to numerical representations and assembling the feature vector using Spark’s VectorAssembler.
 
+![Example Chart](Linear Regression Predicted VS Actual after zeros.png)
 3. Model Training:
 
 Linear Regression, GBT Regressor, Random Forest
