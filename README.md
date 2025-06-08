@@ -96,7 +96,7 @@ __ADD__
 
 ### 4. Results Section
 #### Data Exploration
-__ADD__
+Tips and zeros
 
 From our exploratory analysis, we observed the following patterns:
 
