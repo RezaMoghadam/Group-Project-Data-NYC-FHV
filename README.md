@@ -175,6 +175,11 @@ R² Score: 0.848
 MAE : 1.789  
 Grid search with cross validation of 3 improved the RMSE score significantly.  
 New RMSE: 2.63  
+Best Parameters:  
+Best numTrees: 150  
+Best maxDepth: 10  
+Best minInstancesPerNode: 1  
+Best featureSubsetStrategy: auto  
 
 __To-Do:__
 Feature Importance Plot (GBT Regressor)
