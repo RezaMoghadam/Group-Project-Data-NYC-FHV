@@ -188,9 +188,11 @@ Our first model Linear Regression served as a useful baseline, it quickly became
 In evaluating the three regression approaches—ordinary linear regression, gradient-boosted trees (GBT) regression, and random forest regression—across root mean squared error (RMSE), coefficient of determination (R²), and mean absolute error (MAE), a few clear patterns emerge:
 
 __Overall predictive strength__
+
 All models demonstrate strong fit to the data, with R² values clustered between 0.848 and 0.865 and error metrics (RMSE < 3, MAE < 1.82) indicating that each captures the majority of variance in the outcome. This consistency suggests that the underlying relationships between predictors and response are largely linear, but with enough complexity to benefit from non-linear methods.
 
 __RMSE (Root Mean Squared Error)__
+
 RMSE penalizes larger deviations more heavily, providing a sense of how far predictions stray on average from observed values.
 
 - GBT Regression achieved the lowest RMSE (2.65), indicating the tightest clustering of residuals and the strongest capacity to minimize large errors.
@@ -198,6 +200,7 @@ RMSE penalizes larger deviations more heavily, providing a sense of how far pred
 - Random Forest Regression shows the highest RMSE (2.82), suggesting that, in this case, its ensemble of unpruned decision trees may be slightly more prone to occasional large errors than the other approaches.
 
 __R² (Coefficient of Determination)__
+
 R² quantifies the proportion of variance in the target explained by the model.
 
 - GBT Regression leads with an R² of 0.865, explaining 86.5% of the variability — highlighting its superior fit.
@@ -205,6 +208,7 @@ R² quantifies the proportion of variance in the target explained by the model.
 - Random Forest Regression trails at R² = 0.848, suggesting that despite its flexibility, it does not capture quite as much systematic variation in this specific dataset.
 
 __MAE (Mean Absolute Error)__
+
 MAE measures the average magnitude of errors, treating all deviations equally.
 
 - GBT Regression had the lowest MAE (1.629), meaning its typical prediction error is about 1.63 units.
@@ -214,6 +218,7 @@ MAE measures the average magnitude of errors, treating all deviations equally.
 Together with RMSE, the MAE results reinforce that GBT not only minimizes large outliers but also reduces overall deviation more effectively than its counterparts.
 
 #### Challenges
+
 - __SDSC__: One of the early challenges we encountered was connecting to the San Diego Supercomputer Center (SDSC). The initial setup—configuring secure connections, managing port forwarding for Jupyter Notebooks, and aligning dependencies—proved more complicated than expected. While time-consuming, this process highlighted the importance of robust infrastructure and served as a valuable learning experience in using scalable computational resources. Once set up, SDSC gave us the ability to experiment with more complex models without worrying about local processing limitations.
 
 - __Initial Modeling__: The first model training session also presented practical issues. Our preprocessing step introduced a high number of features, especially due to one-hot encoding of location-based variables. This caused unexpected memory issues and long training times, even with relatively simple models like Linear Regression. We had to restructure our pipeline to process data in batches and manage feature dimensionality more carefully to reduce runtime without sacrificing accuracy.  
