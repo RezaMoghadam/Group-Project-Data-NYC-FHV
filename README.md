@@ -158,11 +158,13 @@ def IQR_bounds(df, columns):
 ```
 Further preprocessing included converting categorical columns to numerical representations and assembling the feature vector using Spark’s VectorAssembler.
 
-#### Model Trainings
+#### Model Training and Hyper Parameter Tuning
 We selected the Linear Regression (LR) model as our baseline because it is simple, interpretable, and computationally efficient. It allows us to establish a reference point for evaluating the performance of more complex models. Also, our LR model provides insight into how each feature influences the target variable (driver pay), helping us understand the data relationships before applying advanced methods.
 
+We utilized the RegressionEvaluator from PySpark’s ML library to consistently assess model performance during hyperparameter tuning with grid search across three regression algorithms: Gradient-Boosted Trees (GBT), Linear Regression (LR), and Random Forest (RF). The evaluator was configured with the target column (labelCol) set to the actual label (driver_pay) and the prediction column (predictionCol) set to the model’s predicted output. The primary evaluation metric used was Root Mean Squared Error (RMSE), which is sensitive to large errors and provides a reliable measure of model accuracy. By applying a uniform evaluation strategy across all models within the CrossValidator framework, we ensured comparability of results and consistency in performance optimization.
+
 ##### Linear Regression  
-We trained a baseline Linear Regression model using PySpark's ML Library to predict driver pay. The model was trained on engineered features such as trip duration, distance, pickup/dropoff zones, and time-of-day indicators. After the initial run and ploting the results. There was an observaition on 0 driver pay predictions (A vertical blue line on zero). We removed the zero amount (and under) labels from the data which improved the reults. After retraining, we evaluate the performance using RMSE, R², and MAE as the performance metric. 
+We trained a baseline Linear Regression model using PySpark's ML Library to predict driver pay. The model was trained on engineered features such as trip duration, distance, pickup/dropoff zones, and time-of-day indicators. After the initial run and ploting the results. There was an observaition on 0 driver pay predictions (A vertical blue line on zero). We removed the zero amount (and under) labels from the data which improved the reults.  
 
 ##### GBT Regression  
 We trained a Gradient-Boosted Trees (GBT) regression model using the same feature set to capture non-linear relationships in the data. 
@@ -170,27 +172,9 @@ We trained a Gradient-Boosted Trees (GBT) regression model using the same featur
 ##### Random Forest Regression
 The Random Forest (RF) regression model was also trained on the same dataset and performed reasonably well. Its overall prediction accuracy was lower than that of the GBT model, indicating it was less effective at capturing the underlying structure of the data.
 
-We utilized the RegressionEvaluator from PySpark’s ML library to consistently assess model performance during hyperparameter tuning with grid search across three regression algorithms: Gradient-Boosted Trees (GBT), Linear Regression (LR), and Random Forest (RF). The evaluator was configured with the target column (labelCol) set to the actual label (driver_pay) and the prediction column (predictionCol) set to the model’s predicted output. The primary evaluation metric used was Root Mean Squared Error (RMSE), which is sensitive to large errors and provides a reliable measure of model accuracy. By applying a uniform evaluation strategy across all models within the CrossValidator framework, we ensured comparability of results and consistency in performance optimization.
-
-Best Linear Regression Parameters:  
-  regParam          = 0.0  
-  elasticNetParam   = 0.0  
-  fitIntercept      = True  
-##### GBT Regression
-Best parameters found:  
-  maxDepth     = 7  
-  maxIter      = 50  
-  stepSize     = 0.1  
-  subsamplingRate = 1.0  
-
-##### Random Forest Regression
-Best Parameters:  
-Best numTrees: 150  
-Best maxDepth: 10  
-Best minInstancesPerNode: 1  
-Best featureSubsetStrategy: auto  
 #### Model Evaluations
-##### Linear Regression
+
+We evaluated all three model performances through Root Mean Square Error (RMSE), Coefficient of Determination (R²), and Mean Absolute Error (MAE).
 
 ### D. Results Section
 #### Data Exploration
@@ -211,24 +195,29 @@ Missing values in fare components were removed.
 Categorical variables such as pickup and drop-off locations were encoded using one-hot encoding.
 Features like trip_miles, trip_time, and tips were scaled using standard normalization.
 
-#### Model Trainings
+#### Model Training and Hyper Parameter Tuning
 ##### Linear Regression
 
-Linear Regression was used to model the relationship between trip characteristics and driver pay.
-The model was trained on the full pipeline with all selected features.
-
+Grid search optimal parameters:
+- regParam = 0.0  
+- elasticNetParam = 0.0  
+- fitIntercept = True 
 
 ##### GBT Regressor (Gradient Boosted Trees)
 
-Gradient Boosted Trees were implemented to capture non-linear relationships.
-The model was configured with 100 iterations, a learning rate of 0.1, and max depth of 5.
-
+Grid search optimal parameters: 
+- maxDepth = 7  
+- maxIter = 50  
+- stepSize = 0.1  
+- subsamplingRate = 1.0  
 
 ##### Random Forest Regression
 
-Random Forest was utilized to model complex patterns by aggregating predictions from multiple decision trees.
-The model was configured with 100 trees and a maximum depth of 10 to balance accuracy and overfitting.
-
+Grid search optimal parameters: 
+- numTrees: 150  
+- maxDepth: 10  
+- minInstancesPerNode: 1  
+- featureSubsetStrategy: auto  
 
 #### Model Evaluations
 
