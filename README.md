@@ -16,47 +16,126 @@ To support our exploratory data analysis (EDA) and provide visual insights into 
 
 __Figure 1: Number of Rides per Hour of Day__
 ![Rides Per Hour](Figures/rides_per_hour.png)
-This line graph illustrates the distribution of ride volumes across different hours of the day. The data reveals distinct peaks during morning (8–9 AM) and evening (5–6 PM) hours, corresponding to typical commuting times. A noticeable dip occurs during late-night hours, reflecting reduced demand.
+This line graph illustrates the distribution of ride volumes across different hours of the day. 
 
 <br>
 
 __Figure 2: Ride Volume by Hour and Weekday__
 ![Hourly Ride Volume](Figures/ride_vol_hourly.png)
-We can quickly see that Monday-Friday from about 1:00 AM to about 6:00 AM is the lowest ride volume of the week. Consequently, Friday and Saturday nights (6:00PM to approximately 1:00 AM the next morning) have the highest volume of the week. Trends also show that weekends are busier and during the weekdays, evenings are typically the busiest though there are brief spikes in the monring. This is likely commuters coming to and from work.
+Ride volume heatmap by hour of the day and day of the week.
 
 <br>
 
 __Figure 3: Average Trip Distance and Average Fare by Hour__
 ![Day Hour vs Avg Tip vs Avg Fare](Figures/avg_dist_and_fare.png)
-Comparing average fare to average trip miles across the span of the day we see average fare tends to follow the average distance trend. Then, at about 11:00 AM, average trip distance increases until about 3:00 PM and then falls until about 7:00 PM. Meanwhile, average fare remains relatively constant at about $4.30.
-This dual-axis chart plots average trip distances and corresponding fares against each hour of the day. Longer trips and higher fares are observed during off-peak hours, suggesting that riders may travel longer distances when traffic is lighter.
+CAPTION
 
 <br>
 
 __Figure 4: Trip Distance vs. Tip Amount__
 ![Trip Distance vs Tips](Figures/distance_vs_tips.png)
-A scatter plot analyzing the relationship between trip distance and tip amounts. The visualization indicates a positive correlation, where longer trips tend to result in higher tips, although variability exists.
+
+Scatter plot analyzing the relationship between trip distance and tip amounts. 
 
 <br>
 
 __Figure 5: Trip Duration vs. Driver Pay__
 ![Trip Duration vs Driver Pay](Figures/time_vs_DriverPay.png)
-This scatter plot examines how trip duration impacts driver earnings. The data suggests that longer trip durations generally lead to increased driver pay, but with diminishing returns beyond a certain point.
+
+Scatter plot examines how trip duration impacts driver earnings.
 
 <br>
 
 __Figure 6: Trip Distance vs. Driver Pay__
 ![Trip Distance vs Driver Pay](Figures/TripDist_vs_DriverPay.png)
-A scatter plot depicting the association between trip distance and driver compensation. A strong positive correlation is evident, highlighting that longer distances contribute significantly to driver earnings.
+
+Scatter plot depicting the association between trip distance and driver compensation.
 
 <br>
 
 __Figure 7: Initial Linear Regression, Actual Pay vs Predicted Pay__
 ![Initial Linear Regression Actual Pay vs Predicted Pay](Figures/linear_regression_predicted_vs_actual_pay_before_filter.png)
 
-Scatterplot of actual driver pay vs predicted driver pay utilizing the initial linear regression model. During first-pass training, $0 driver pay data points were included during model training, which led to erroneous predictions. 
+Scatterplot of actual driver pay vs predicted driver pay utilizing the initial linear regression model. 
 
 ### 3. Methods Section
+#### Environment Setup and Data Acquisition
+We use PySpark to process the NYC For-Hire Vehicle (FHV) dataset on SDSC's Expanse platform.  
+
+The environment is configured with increased memory and executor resources to handle the large-scale data efficiently.
+
+This setup includes:
+- PySpark 
+- Spark session initialization with custom memory and executor settings
+- Configuration for parallel processing
+
+```python
+import pyspark
+print("Using PySpark version:", pyspark.__version__)
+
+from pyspark.sql import SparkSession
+
+sc = SparkSession.builder \
+    .config("spark.driver.memory", "20g") \
+    .config("spark.executor.memory", "15g") \
+    .config('spark.executor.instances', 4) \
+    .config('spark.executor.cores', 3) \
+    .getOrCreate()
+```
+
+Below cell installs the packages inside jupyter notebook 
+
+```python
+%pip install pyspark pandas matplotlib seaborn
+```
+
+Below cell downloads the files to local Data folder
+```python
+# Setup & conditional install/download
+import os
+import sys
+import subprocess
+from pathlib import Path
+
+# Where the data is expected to be downloaded for this notebook
+data_dir = Path.cwd() / "Data"
+
+if not data_dir.exists():
+    # Install the Kaggle CLI into this same env
+    subprocess.run(
+        [sys.executable, "-m", "pip", "install", "--quiet", "kaggle"],
+        check=True
+    )
+
+    # Create the Data/ directory
+    data_dir.mkdir(parents=True, exist_ok=True)
+
+    # Tell Kaggle CLI where to look for kaggle.json (in the notebook folder)
+    os.environ['KAGGLE_CONFIG_DIR'] = str(Path.cwd()) # Change this if you want to use a different location
+
+    # Verify kaggle.json is in place
+    kaggle_json = Path(os.environ['KAGGLE_CONFIG_DIR']) / "kaggle.json"
+
+    if not kaggle_json.exists():
+        raise FileNotFoundError(
+            f"Couldn't find kaggle.json at {kaggle_json}. Download it from your Kaggle account (API section) and place it there."
+        )
+
+    # Download & unzip into Data/
+    subprocess.run(
+        [
+            "kaggle", "datasets", "download",
+            "-d", "jeffsinsel/nyc-fhvhv-data",
+            "-p", str(data_dir),
+            "--unzip"
+        ],
+        check=True
+    )
+    print("Kaggle CLI installed, data downloaded into Data/ directory.")
+else:
+    print("Data directory already exists. Skipping install & download.")
+```
+
 #### Data Exploration
 
 We began by loading the NYC High Volume For-Hire Vehicle (HVFHV) dataset from 2019 onward, using PySpark for scalable data processing. A Spark session was created with appropriate memory configurations to handle the large dataset efficiently. Initial exploration included examining schema structure, sample rows, column names, and total row counts. Certain columns such as flags and the airport_fee were dropped due to mixed data types or irrelevance to prediction.
@@ -106,6 +185,7 @@ Best featureSubsetStrategy: auto
 
 ### 4. Results Section
 #### Data Exploration
+
 Tips and zeros: For our data, we removed over 2.28 million data entries where driver pay is less than or equal to zero. This is either erroneous or a canceled transaction that will not lead to an accurate assessment of our model and its outcomes. Tips are also difficult to handle as the data is inherently noisy and not an overall good predictor of driver pay (e.g. driver was charasmatic and drove a short distance but received a $100 tip). Often, we found, that drivers would drop off customers without receiving any tip. Yet, we found that quite often tips were an important part of driver pay. Therefore, we removed outliers and normalized the data so that it was an contributing predictor/paramter of our models.
 
 From our exploratory analysis, we observed the following patterns:
@@ -182,6 +262,10 @@ MAE : 1.789
 
 ### 5. Discussion Section
 This project began with the goal of understanding the economic patterns of NYC for-hire vehicle services using predictive modeling. We recognized the broader implications of being able to accurately model ride behavior, particularly in terms of driver compensation and platform efficiency. A well-performing model can be crucial not just for businesses seeking optimization, but also for supporting fair wage systems and identifying potential inequities in pricing or pay distribution.
+
+#### Exploratory Data Analysis Key Take-Aways
+
+__Figure 1__ reveals distinct peaks during morning (8–9 AM) and evening (5–6 PM) hours, corresponding to typical commuting times. A noticeable dip occurs during late-night hours, reflecting reduced demand. In __Figure 2__, we can quickly see that Monday-Friday from about 1:00 AM to about 6:00 AM is the lowest ride volume of the week. Consequently, Friday and Saturday nights (6:00PM to approximately 1:00 AM the next morning) have the highest volume of the week. Trends also show that weekends are busier and during the weekdays, evenings are typically the busiest though there are brief spikes in the monring. This is likely commuters coming to and from work. __Figure 3__ compares average fare to average trip miles across the span of the day and we see average fare tends to follow the average distance trend. At about 11:00 AM, average trip distance increases until about 3:00 PM and then falls until about 7:00 PM. Meanwhile, average fare remains relatively constant at about \$4.30. This dual-axis chart plots average trip distances and corresponding fares against each hour of the day. Longer trips and higher fares are observed during off-peak hours, suggesting that riders may travel longer distances when traffic is lighter. __Figure 4__ indicates a positive correlation, where longer trips tend to result in higher tips, although variability can be seen, suggesting confounding factors. __Figure 5__ The visualizes that longer trip durations generally lead to increased driver pay, but with diminishing returns beyond a certain point. In __Figure 6__, we can see a strong positive association between trip distance and driver compensation is evident, highlighting that longer distances contribute significantly to driver earnings. __Figure 7__ highlights our first-pass training where $0 driver pay data points were initially included, which led to erroneous predictions.
 
 Our first model Linear Regression served as a useful baseline, it quickly became apparent that it could not capture the nuanced relationships in our data. It underperformed especially on longer or irregular trips, and the residual errors suggested significant underfitting. In contrast, Gradient Boosted Trees (GBT) showed a substantial improvement in performance. Its ability to model non-linear interactions and variable importance helped us gain insights into the most influential features affecting driver pay and tips.
 
@@ -325,84 +409,12 @@ Services: Uber, Lyft, Via, Juno
 
 [Data Dictionary (PDF)](data_dictionary_trip_records_hvfhs.pdf)
 
-## Environmental Setup and Data Download
-We use PySpark to process the NYC For-Hire Vehicle (FHV) dataset on SDSC's Expanse platform.  
-The environment is configured with increased memory and executor resources to handle the large-scale data efficiently.
 
-This setup includes:
-- PySpark 
-- Spark session initialization with custom memory and executor settings
-- Configuration for parallel processing
-
-```python
-import pyspark
-print("Using PySpark version:", pyspark.__version__)
-
-from pyspark.sql import SparkSession
-
-sc = SparkSession.builder \
-    .config("spark.driver.memory", "20g") \
-    .config("spark.executor.memory", "15g") \
-    .config('spark.executor.instances', 4) \
-    .config('spark.executor.cores', 3) \
-    .getOrCreate()
-```
 
 Only the Notebook for Milestone 2 includes the necessary packages and a cell to download the data locally.  
 The rest of the notebooks assume that the data is in the local (Data) folder.
 
-Below cell installs the packages inside jupyter notebook 
 
-```python
-%pip install pyspark pandas matplotlib seaborn
-```
-
-Below cell downloads the files to local Data folder
-```python
-# Setup & conditional install/download
-import os
-import sys
-import subprocess
-from pathlib import Path
-
-# Where the data is expected to be downloaded for this notebook
-data_dir = Path.cwd() / "Data"
-
-if not data_dir.exists():
-    # Install the Kaggle CLI into this same env
-    subprocess.run(
-        [sys.executable, "-m", "pip", "install", "--quiet", "kaggle"],
-        check=True
-    )
-
-    # Create the Data/ directory
-    data_dir.mkdir(parents=True, exist_ok=True)
-
-    # Tell Kaggle CLI where to look for kaggle.json (in the notebook folder)
-    os.environ['KAGGLE_CONFIG_DIR'] = str(Path.cwd()) # Change this if you want to use a different location
-
-    # Verify kaggle.json is in place
-    kaggle_json = Path(os.environ['KAGGLE_CONFIG_DIR']) / "kaggle.json"
-
-    if not kaggle_json.exists():
-        raise FileNotFoundError(
-            f"Couldn't find kaggle.json at {kaggle_json}. Download it from your Kaggle account (API section) and place it there."
-        )
-
-    # Download & unzip into Data/
-    subprocess.run(
-        [
-            "kaggle", "datasets", "download",
-            "-d", "jeffsinsel/nyc-fhvhv-data",
-            "-p", str(data_dir),
-            "--unzip"
-        ],
-        check=True
-    )
-    print("Kaggle CLI installed, data downloaded into Data/ directory.")
-else:
-    print("Data directory already exists. Skipping install & download.")
-```
 
 The full NYC For-Hire Vehicle (FHV) trip dataset can be accessed on Kaggle:
 
