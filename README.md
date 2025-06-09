@@ -159,18 +159,10 @@ def IQR_bounds(df, columns):
 Further preprocessing included converting categorical columns to numerical representations and assembling the feature vector using Spark’s VectorAssembler.
 
 #### Model Training and Hyper Parameter Tuning
-We selected the Linear Regression (LR) model as our baseline because it is simple, interpretable, and computationally efficient. It allows us to establish a reference point for evaluating the performance of more complex models. Also, our LR model provides insight into how each feature influences the target variable (driver pay), helping us understand the data relationships before applying advanced methods.
+
+We began by training a baseline Linear Regression model in PySpark’s ML Library to predict driver pay. After our first run and inspection of the model fit (notably a vertical band of zero-pay predictions, __Figure 7__), we identified and removed records with zero pay to help improve model fit. We chose Linear Regression as our foundation because its simplicity and interpretability provide a clear reference point: it is computationally efficient, yields coefficient estimates that quantify each feature’s effect on pay, and helps us verify data relationships before introducing complexity. With this transparent baseline established, we then advanced to more sophisticated techniques—gradient boosted trees and random forests—to capture non-linear effects and feature interactions that extend beyond the linear assumptions of our initial model.
 
 We utilized the RegressionEvaluator from PySpark’s ML library to consistently assess model performance during hyperparameter tuning with grid search across three regression algorithms: Gradient-Boosted Trees (GBT), Linear Regression (LR), and Random Forest (RF). The evaluator was configured with the target column (labelCol) set to the actual label (driver_pay) and the prediction column (predictionCol) set to the model’s predicted output. The primary evaluation metric used was Root Mean Squared Error (RMSE), which is sensitive to large errors and provides a reliable measure of model accuracy. By applying a uniform evaluation strategy across all models within the CrossValidator framework, we ensured comparability of results and consistency in performance optimization.
-
-##### Linear Regression  
-We trained a baseline Linear Regression model using PySpark's ML Library to predict driver pay. The model was trained on engineered features such as trip duration, distance, pickup/dropoff zones, and time-of-day indicators. After the initial run and ploting the results. There was an observaition on 0 driver pay predictions (A vertical blue line on zero). We removed the zero amount (and under) labels from the data which improved the reults.  
-
-##### GBT Regression  
-We trained a Gradient-Boosted Trees (GBT) regression model using the same feature set to capture non-linear relationships in the data. 
-
-##### Random Forest Regression
-The Random Forest (RF) regression model was also trained on the same dataset and performed reasonably well. Its overall prediction accuracy was lower than that of the GBT model, indicating it was less effective at capturing the underlying structure of the data.
 
 #### Model Evaluations
 
