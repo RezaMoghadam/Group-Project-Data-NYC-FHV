@@ -223,41 +223,37 @@ The model was configured with 100 trees and a maximum depth of 10 to balance acc
 
 #### Model Evaluations
 __Figure 8: Model Performance Comparisons__
+
+__Table 1__: Model Evaluation Metrics
+| Model    | RMSE | R^2 | MAE |
+| -------- | ------- | ------- | ------- |
+| Linear Regression  | 2.78    | 0.852 | 1.81 |
+| GBT Regression | 2.65    | 0.865 | 1.629 |
+| Random Forest Regression    | 2.82    | 0.848 | 1.789 |
+
+<br>
+
 ![Model Performance Comparisons](Figures/model_performance_comparison.png)
 
-Scatterplot of actual driver pay vs predicted driver pay utilizing the finalized linear regression model.  
-
-Training after further cleaning and Parameter Tuning (Due to the resource issues this section was performed on sample of data for quicker results.)
 
 ##### Linear Regression
 __Figure 9: Linear Regression, Actual Pay vs Predicted Pay__
 ![Final Linear Regression Actual Pay vs Predicted Pay](Figures/linear_regression_predicted_vs_actual_pay_after_filter.png)
 
 Scatterplot of actual driver pay vs predicted driver pay utilizing the finalized linear regression model.  
-RMSE: 2.78  
-R² Score: 0.852  
-MAE : 1.81  
-
 
 ##### GBT Regressor (Gradient Boosted Trees)
 __Figure 10: GBT Regression, Actual Pay vs Predicted Pay__
 ![GBT Regression Actual Pay vs Predicted Pay](Figures/gbt_regression_predicted_vs_actual_pay.png)
 
-RMSE: 2.65  
-R² Score: 0.865  
-MAE : 1.629  
-
+Scatterplot of actual driver pay vs predicted driver pay utilizing the finalized GBT regression model.
 
 
 ##### Random Forest Regression
 __Figure 11: Random Forest Regression, Actual Pay vs Predicted Pay__
-![GBT Regression Actual Pay vs Predicted Pay](Figures/rf_regression_predicted_vs_actual_pay.png)  
+![GBT Regression Actual Pay vs Predicted Pay](Figures/rf_regression_predicted_vs_actual_pay.png)
 
-RMSE: 2.82  
-R² Score: 0.848  
-MAE : 1.789  
-
-
+Scatterplot of actual driver pay vs predicted driver pay utilizing the finalized Random Forest regression model.
 
 
 ### 5. Discussion Section
