@@ -328,27 +328,26 @@ In closing, this project reinforced how crucial it is to bridge technical rigor 
 ### G. Statement of Collaboration
 __Reza Moghadam__
 
-Role: Team Leader & Coding
+Role: Team Coordiantor and Contributer
 
-Contribution: Reza led the overall project coordination and timeline management. He worked on connecting to the SDSC cluster, preparing the environment, and resolving issues with data uploads and access. He also facilitated communication among team members, managed task delegation, and was actively involved in all parts of the project—from data exploration to model evaluation. He also oversaw the integration of final results and helped refine the written report.
+Contribution: Project Coordination, Github Setup, SDSC Connection Setup, Data Upload, Data Exploration, Model Training, and Help with Technical Writing (README). 
 
 __Aryslan Vakilov__
 
-Role: Coding & Technical Writer
+Role: Contributer
 
-Contribution: Aryslan focused on model development, particularly the implementation and evaluation of the Gradient Boosted Trees and Random Forest models. He also conducted extensive exploratory data analysis (EDA) of the RMSE and R2 for model performances, contributed to the visualization components, and authored significant portions of the methods, results, and preparing the written report.
+Contribution: Coding, Model Training, and Technical Writing (Report)
 
 __Kyle Packer__
 
-Role: Machine Learning Engineer
-
-Contribution: Kyle was responsible for experimenting with advanced models such as Linear Regression model. He fine-tuned model parameters and performed comparative performance analysis across models. Kyle also contributed to feature engineering and helped troubleshoot technical issues with data preprocessing.
+Role: Contributer
+Contribution: Data Exploration, Coding, Model Training, and Technical Writing (README)
 
 __Dennis Krutkin__
 
-Role: Data and Machine Learning Engineer
+Role: Organizer and Contributer
 
-Contribution: Dennis handled data cleaning, preprocessing pipelines, setup of the project’s infrastructure and documented the data processing steps. He managed team communication by creating a discord channel and organized Zoom meetings throughout the project. Dennis elicited formal model selection for the project, defined evaluation metrics, and trained Random Forest model. 
+Contribution: Coding, Model Training, Technical Writing (Editing README and Finalizing the Report), and Organizing the Communication and Github
 
 As a team, we collaborated effectively through regular meetings, shared Git repositories, and coordinated progress via our Discord channel for group chat. We ensured all members were aware of the project’s direction and goals. While Reza served as the team leader, all team members contributed meaningfully and equitably to the project’s success.
 
