@@ -4,14 +4,14 @@ This project analyzes New York City’s High Volume For-Hire Vehicle (FHV) trip 
 
 ## Milestone Four  
 ### Written Report
-### 1. Introduction to the project
+### A. Introduction to the project
 Our project focuses on analyzing the NYC High Volume For-Hire Vehicle (HVFHV) trip dataset, which contains detailed records of ride-hailing trips completed by Uber, Lyft, Via, and Juno. We selected this dataset because of its richness in real-world transportation data and its potential to uncover valuable insights into urban mobility patterns. The dataset spans millions of trips across New York City and captures essential details such as pickup/drop-off times, trip distances, driver pay, tips, and more.
 
 This project is particularly compelling because it blends data science with one of the most widely used services in urban life: ride-sharing. Ride-hailing services have dramatically transformed how people commute in large cities, and understanding their behavior through data allows us to identify trends, inefficiencies, and opportunities for optimization. Having a good predictive model in this domain can yield broad societal and economic impacts. For example, it can help ride-sharing platforms optimize driver allocation, reduce passenger wait times, and improve fare structures. It also supports city planners in managing traffic flow and infrastructure development. Moreover, accurate prediction of fares and driver earnings contribute to fairness and transparency within gig economy platforms.
 
 Our project aims to explore key patterns in ride-sharing behavior using visual analysis and set the stage for potential predictive modeling. Insights derived from this work can serve as a foundation for further machine learning applications in transportation and mobility services.
 
-### 2. Figures
+### B. Figures
 To support our exploratory data analysis (EDA) and provide visual insights into the NYC High Volume For-Hire Vehicle (HVFHV) trip data, we present the figures below; these visualizations collectively provide a comprehensive overview of ride patterns, financial aspects, and temporal dynamics within NYC's for-hire vehicle sector.
 
 __Figure 1: Number of Rides per Hour of Day__
@@ -28,7 +28,7 @@ Ride volume heatmap by hour of the day and day of the week.
 
 __Figure 3: Average Trip Distance and Average Fare by Hour__
 ![Day Hour vs Avg Tip vs Avg Fare](Figures/avg_dist_and_fare.png)
-CAPTION
+Relationship between average trip miles and average fare by hour of the day. 
 
 <br>
 
@@ -58,7 +58,7 @@ __Figure 7: Initial Linear Regression, Actual Pay vs Predicted Pay__
 
 Scatterplot of actual driver pay vs predicted driver pay utilizing the initial linear regression model. 
 
-### 3. Methods Section
+### C. Methods Section
 #### Environment Setup and Data Acquisition
 We use PySpark to process the NYC For-Hire Vehicle (FHV) dataset on SDSC's Expanse platform.  
 
@@ -183,7 +183,7 @@ Best featureSubsetStrategy: auto
 #### Model Evaluations
 ##### Linear Regression
 
-### 4. Results Section
+### D. Results Section
 #### Data Exploration
 
 Tips and zeros: For our data, we removed over 2.28 million data entries where driver pay is less than or equal to zero. This is either erroneous or a canceled transaction that will not lead to an accurate assessment of our model and its outcomes. Tips are also difficult to handle as the data is inherently noisy and not an overall good predictor of driver pay (e.g. driver was charasmatic and drove a short distance but received a $100 tip). Often, we found, that drivers would drop off customers without receiving any tip. Yet, we found that quite often tips were an important part of driver pay. Therefore, we removed outliers and normalized the data so that it was an contributing predictor/paramter of our models.
@@ -256,7 +256,7 @@ __Figure 11: Random Forest Regression, Actual Pay vs Predicted Pay__
 Scatterplot of actual driver pay vs predicted driver pay utilizing the finalized Random Forest regression model.
 
 
-### 5. Discussion Section
+### E. Discussion Section
 This project began with the goal of understanding the economic patterns of NYC for-hire vehicle services using predictive modeling. We recognized the broader implications of being able to accurately model ride behavior, particularly in terms of driver compensation and platform efficiency. A well-performing model can be crucial not just for businesses seeking optimization, but also for supporting fair wage systems and identifying potential inequities in pricing or pay distribution.
 
 #### Exploratory Data Analysis Key Take-Aways
@@ -306,7 +306,7 @@ Together with RMSE, the MAE results reinforce that GBT not only minimizes large 
 - __Size of Data__: The data contained around 750 million rows which is very hard to train on considering the unavailability of SDSC. Therefore we decided to train on samples of data.  
 - __Training the Full Data__ Training the full data was extremely time consuming, the training on GBT took 7 hours and Random Forest around 12 hours. Due to the technical difficulties at the super computer center and time constraints, we decided to continiue on with sample data.
 
-### 6. Conclusion
+### F. Conclusion
 
 This project has been an exercise not just in machine learning, but in iterative problem-solving. From data management hurdles to model refinement, we approached each stage critically, aiming to balance technical rigor with interpretability.Working on this project has been a rewarding experience that offered us insight not only into the inner workings of NYC’s for-hire vehicle economy but also into the practical challenges of real-world machine learning pipelines. If we were to do it again, there are definitely things we would have approached differently.
 
@@ -314,12 +314,11 @@ First, we would have prioritized building a more flexible data pipeline early on
 
 We also wish we had more time to explore deep learning models or hybrid approaches. While our models like Linear Regression and Gradient Boosted Trees gave us valuable baselines and decent accuracy, a deeper neural network model might be able to capture more abstract relationships between features like location and tipping behavior.
 
-Another future direction would be incorporating explainability methods such as SHAP values or LIME to better understand feature contributions, especially for complex models like GBTs. This would not only enhance model transparency but also aid in identifying unintended biases or overfitting risks.
 We see an opportunity to turn this into a more interactive dashboard or decision-support tool for drivers or policymakers. If we could deploy our models in real-time with daily updated data, this could help optimize route planning, incentive structuring, or dynamic pricing strategies across ride-hailing platforms.
 
 In closing, this project reinforced how crucial it is to bridge technical rigor with domain understanding. Data alone isn’t enough—it’s about interpreting that data meaningfully and responsibly. While we made solid progress, there’s plenty of room for future exploration, and we’re excited about where this work could go next.
 
-### 7. Statement of Collaboration
+### G. Statement of Collaboration
 __Reza Moghadam__
 
 Role: Team Leader & Coding
@@ -345,77 +344,6 @@ Role: Data and Machine Learning Engineer
 Contribution: Dennis handled data cleaning, preprocessing pipelines, setup of the project’s infrastructure and documented the data processing steps. He managed team communication by creating a discord channel and organized Zoom meetings throughout the project. Dennis elicited formal model selection for the project, defined evaluation metrics, and trained Random Forest model. 
 
 As a team, we collaborated effectively through regular meetings, shared Git repositories, and coordinated progress via our Discord channel for group chat. We ensured all members were aware of the project’s direction and goals. While Reza served as the team leader, all team members contributed meaningfully and equitably to the project’s success.
-
-## 8. Final Model, Results Summary and Github Repository
-Final Model and Results Summary
-The Random Forest Regressor was selected as the final model for this project due to its superior performance in predicting driver pay. By leveraging 150 decision trees with a maximum depth of 10, the model effectively captured complex, non-linear relationships in the dataset. Compared to other models such as Linear Regression and Gradient Boosted Trees, the Random Forest achieved the lowest RMSE of 2.82 and the highest R² score of 0.848 , indicating strong predictive accuracy and a well-fitted model. Its robustness to overfitting and ability to handle diverse feature types made it the most effective choice for our ride-sharing trip analysis. Grid search with cross validation of 3 improved the RMSE score of Random Forest to 2.63.  
-
-GitHub Repository
-Your GitHub must be made public by the morning of the next day of the submission deadline. 
-
-## Milestone Three
-Linear Regression Model
-
-### Original Full Pipeline Notebook
-Preprocessing of data (removed outliers based on $\pm$ 1.5 $\cdot$ IQR (Interquartile Range)) <br>
-Training a LR model  
-Analyzing the features and their effects
-### Step One Notebook
-Using the data after Milestone 2 without further preprocessing
-Training of model  
-Reviewing the performance  
-### Step Two Notebook
-Major preprocessing based on observations from Original and Step One  
-Training on the data  
-Reviewing the improvements  
-Further preprocessing  
-Training on the data  
-Reviewing the improvements  
-Conclusion on Milestone 3  
-
-## Milestone Two 
-### Exploratory Data Analysis (EDA)
-
-Loaded and processed using PySpark on the San Diego Supercomputer (SDSC)
-
-Cleaned rows with nulls and invalid values
-
-Explored patterns in trip duration, distance, tips, and driver pay
-
-Visualized demand by time, trip metrics, and correlations
-
-## Preprocessing Steps
-
-Dropped rows with nulls in trip_miles, trip_time, driver_pay
-
-Removed trips with 0 distance or 0 fare
-
-Filtered outliers to improve data quality
-
-Selected relevant features for analysis
-
-## Milestone One
-
-### Dataset
-Source: NYC Taxi & Limousine Commission
-
-Format: Parquet (~19 GB compressed)
-
-Services: Uber, Lyft, Via, Juno
-
-[Data Dictionary (PDF)](data_dictionary_trip_records_hvfhs.pdf)
-
-
-
-Only the Notebook for Milestone 2 includes the necessary packages and a cell to download the data locally.  
-The rest of the notebooks assume that the data is in the local (Data) folder.
-
-
-
-The full NYC For-Hire Vehicle (FHV) trip dataset can be accessed on Kaggle:
-
-[NYC TLC Trip Record Data on Kaggle](https://www.kaggle.com/datasets/jeffsinsel/nyc-fhvhv-data)
-
 
 ## Contributers
 
