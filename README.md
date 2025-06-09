@@ -106,7 +106,7 @@ Best featureSubsetStrategy: auto
 
 ### 4. Results Section
 #### Data Exploration
-Tips and zeros
+Tips and zeros: For our data, we removed over 2.28 million data entries where driver pay is less than or equal to zero. This is either erroneous or a canceled transaction that will not lead to an accurate assessment of our model and its outcomes. Tips are also difficult to handle as the data is inherently noisy and not an overall good predictor of driver pay (e.g. driver was charasmatic and drove a short distance but received a $100 tip). Often, we found, that drivers would drop off customers without receiving any tip. Yet, we found that quite often tips were an important part of driver pay. Therefore, we removed outliers and normalized the data so that it was an contributing predictor/paramter of our models.
 
 From our exploratory analysis, we observed the following patterns:
 
