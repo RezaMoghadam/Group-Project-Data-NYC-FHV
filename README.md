@@ -142,7 +142,7 @@ We began by loading the NYC High Volume For-Hire Vehicle (HVFHV) dataset from 20
 
 #### Preprocessing
 
-We selected key numerical features relevant to ride behavior: pickup_datetime, dropoff_datetime, trip_miles, trip_time, base_passenger_fare, driver_pay, and location IDs. Datetime columns were transformed to extract hour and weekday components. We also performed feature engineering to create useful features like fare_per_mile, and removed outliers based on trip duration and distance. Due to our very large amount of data, we used a small sample of the data (5%) to determine bounds for each parameter and remove the outliers.
+We selected key numerical features relevant to ride behavior: pickup_datetime, dropoff_datetime, trip_miles, trip_time, base_passenger_fare, driver_pay, and location IDs. Datetime columns were transformed to extract hour and weekday components. We also removed outliers based on trip duration and distance. Due to our very large amount of data, we used a small sample of the data (5%) to determine bounds for each parameter and remove the outliers.
 
 ```py
 def IQR_bounds(df, columns):
