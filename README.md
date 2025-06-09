@@ -222,7 +222,6 @@ The model was configured with 100 trees and a maximum depth of 10 to balance acc
 
 
 #### Model Evaluations
-__Figure 8: Model Performance Comparisons__
 
 __Table 1__: Model Evaluation Metrics
 | Model    | RMSE | R^2 | MAE |
@@ -233,6 +232,7 @@ __Table 1__: Model Evaluation Metrics
 
 <br>
 
+__Figure 8: Model Performance Comparisons__
 ![Model Performance Comparisons](Figures/model_performance_comparison.png)
 
 
