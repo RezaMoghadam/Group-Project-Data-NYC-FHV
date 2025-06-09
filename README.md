@@ -185,7 +185,33 @@ This project began with the goal of understanding the economic patterns of NYC f
 
 Our first model Linear Regression served as a useful baseline, it quickly became apparent that it could not capture the nuanced relationships in our data. It underperformed especially on longer or irregular trips, and the residual errors suggested significant underfitting. In contrast, Gradient Boosted Trees (GBT) showed a substantial improvement in performance. Its ability to model non-linear interactions and variable importance helped us gain insights into the most influential features affecting driver pay and tips.
 
-This project has been an exercise not just in machine learning, but in iterative problem-solving. From data management hurdles to model refinement, we approached each stage critically, aiming to balance technical rigor with interpretability.
+In evaluating the three regression approaches—ordinary linear regression, gradient-boosted trees (GBT) regression, and random forest regression—across root mean squared error (RMSE), coefficient of determination (R²), and mean absolute error (MAE), a few clear patterns emerge:
+
+__Overall predictive strength__
+All models demonstrate strong fit to the data, with R² values clustered between 0.848 and 0.865 and error metrics (RMSE < 3, MAE < 1.82) indicating that each captures the majority of variance in the outcome. This consistency suggests that the underlying relationships between predictors and response are largely linear, but with enough complexity to benefit from non-linear methods.
+
+__RMSE (Root Mean Squared Error)__
+RMSE penalizes larger deviations more heavily, providing a sense of how far predictions stray on average from observed values.
+
+- GBT Regression achieved the lowest RMSE (2.65), indicating the tightest clustering of residuals and the strongest capacity to minimize large errors.
+- Linear Regression follows closely (RMSE = 2.78), reflecting that a simple linear fit already does a good job but leaves slightly more extreme deviations uncorrected.
+- Random Forest Regression shows the highest RMSE (2.82), suggesting that, in this case, its ensemble of unpruned decision trees may be slightly more prone to occasional large errors than the other approaches.
+
+__R² (Coefficient of Determination)__
+R² quantifies the proportion of variance in the target explained by the model.
+
+- GBT Regression leads with an R² of 0.865, explaining 86.5% of the variability — highlighting its superior fit.
+- Linear Regression (R² = 0.852) explains 85.2% of the variance, only marginally below GBT, which emphasizes the predominantly linear structure of the data.
+- Random Forest Regression trails at R² = 0.848, suggesting that despite its flexibility, it does not capture quite as much systematic variation in this specific dataset.
+
+__MAE (Mean Absolute Error)__
+MAE measures the average magnitude of errors, treating all deviations equally.
+
+- GBT Regression had the lowest MAE (1.629), meaning its typical prediction error is about 1.63 units.
+- Random Forest Regression comes next (MAE = 1.789)
+- Linear Regression yields the highest average error (MAE = 1.810).
+
+Together with RMSE, the MAE results reinforce that GBT not only minimizes large outliers but also reduces overall deviation more effectively than its counterparts.
 
 #### Challenges
 - __SDSC__: One of the early challenges we encountered was connecting to the San Diego Supercomputer Center (SDSC). The initial setup—configuring secure connections, managing port forwarding for Jupyter Notebooks, and aligning dependencies—proved more complicated than expected. While time-consuming, this process highlighted the importance of robust infrastructure and served as a valuable learning experience in using scalable computational resources. Once set up, SDSC gave us the ability to experiment with more complex models without worrying about local processing limitations.
@@ -196,7 +222,8 @@ This project has been an exercise not just in machine learning, but in iterative
 - __Training the Full Data__ Training the full data was extremely time consuming, the training on GBT took 7 hours and Random Forest around 12 hours. Due to the technical difficulties at the super computer center and time constraints, we decided to continiue on with sample data.
 
 ### 6. Conclusion
-Working on this project has been a rewarding experience that offered us insight not only into the inner workings of NYC’s for-hire vehicle economy but also into the practical challenges of real-world machine learning pipelines. If we were to do it again, there are definitely things we would have approached differently.
+
+This project has been an exercise not just in machine learning, but in iterative problem-solving. From data management hurdles to model refinement, we approached each stage critically, aiming to balance technical rigor with interpretability.Working on this project has been a rewarding experience that offered us insight not only into the inner workings of NYC’s for-hire vehicle economy but also into the practical challenges of real-world machine learning pipelines. If we were to do it again, there are definitely things we would have approached differently.
 
 First, we would have prioritized building a more flexible data pipeline early on. The large feature set and high cardinality variables slowed us down during model iterations and made it harder to experiment with more advanced models. Additionally, integrating external factors such as weather conditions, traffic data, or event schedules could significantly improve the predictive power of our models by adding real-world context to numerical features like trip duration and driver pay.
 
@@ -209,22 +236,26 @@ In closing, this project reinforced how crucial it is to bridge technical rigor 
 
 ### 7. Statement of Collaboration
 __Reza Moghadam__
-Title: Team Leader & Coding
+
+Role: Team Leader & Coding
 
 Contribution: Reza led the overall project coordination and timeline management. He worked on connecting to the SDSC cluster, preparing the environment, and resolving issues with data uploads and access. He also facilitated communication among team members, managed task delegation, and was actively involved in all parts of the project—from data exploration to model evaluation. He also oversaw the integration of final results and helped refine the written report.
 
 __Aryslan Vakilov__
-Title: Coding & Technical Writer
+
+Role: Coding & Technical Writer
 
 Contribution: Aryslan focused on model development, particularly the implementation and evaluation of the Gradient Boosted Trees and Random Forest models. He also conducted extensive exploratory data analysis (EDA) of the RMSE and R2 for model performances, contributed to the visualization components, and authored significant portions of the methods, results, and preparing the written report.
 
 __Kyle Packer__
-Title: Machine Learning Engineer
+
+Role: Machine Learning Engineer
 
 Contribution: Kyle was responsible for experimenting with advanced models such as Linear Regression model. He fine-tuned model parameters and performed comparative performance analysis across models. Kyle also contributed to feature engineering and helped troubleshoot technical issues with data preprocessing.
 
 __Dennis Krutkin__
-Title: Data and Machine Learning Engineer
+
+Role: Data and Machine Learning Engineer
 
 Contribution: Dennis handled data cleaning, preprocessing pipelines, setup of the project’s infrastructure and documented the data processing steps. He managed team communication by creating a discord channel and organized Zoom meetings throughout the project. Dennis elicited formal model selection for the project, defined evaluation metrics, and trained Random Forest model. 
 
