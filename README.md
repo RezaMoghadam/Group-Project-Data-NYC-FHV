@@ -253,6 +253,8 @@ __Figure 11: Random Forest Regression, Actual Pay vs Predicted Pay__
 
 Scatterplot of actual driver pay vs predicted driver pay utilizing the finalized Random Forest regression model.
 
+##### Final Model
+Gradient-boosted trees outperformed the other two models suggesting that its iterative, weighted combination of weak learners captures subtle non-linearities and interactions that linear regression misses and that random forests do not exploit as efficiently. The performance metrics for all three models are discussed in further detail in the discussion section. 
 
 ### E. Discussion Section
 This project began with the goal of understanding the economic patterns of NYC for-hire vehicle services using predictive modeling. We recognized the broader implications of being able to accurately model ride behavior, particularly in terms of driver compensation and platform efficiency. A well-performing model can be crucial not just for businesses seeking optimization, but also for supporting fair wage systems and identifying potential inequities in pricing or pay distribution.
