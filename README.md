@@ -190,19 +190,17 @@ Longer trips tend to yield higher tips and greater driver pay.
 Variability in driver pay is more pronounced during longer trip durations.
 
 #### Preprocessing
+After exploratory data analysis, the predictive features we chose for all three models were:  
+- trip_miles: total miles for passenger trip   
+- trip_time: total time in seconds for passenger trip     
+- base_passenger_fare: base passenger fare before tolls, tips, taxes, and fees    
+- tips: total amount of tips received from passenger   
+- hour: Extracted from Pickup_datetime  
+- weekday: Extracted from Pickup_datetime  
+- PULocationID: TLC Taxi Zone in which the trip began   
+- DOLocationID: TLC Taxi Zone in which the trip ended  
 
-Missing values in fare components were removed.
-Categorical variables such as pickup and drop-off locations were encoded using one-hot encoding.
-Features like trip_miles, trip_time, and tips were scaled using standard normalization.
-Features:   
-trip_miles: total miles for passenger trip   
-trip_time: total time in seconds for passenger trip     
-base_passenger_fare: base passenger fare before tolls, tips, taxes, and fees    
-tips: total amount of tips received from passenger   
-hour & weekday: Extracted from Pickup_datetime  
-PULocationID: TLC Taxi Zone in which the trip began   
-DOLocationID: TLC Taxi Zone in which the trip ended   
-
+We removed missing values in fare components. Categorical variables such as pickup and drop-off locations were encoded using one-hot encoding. Numerical features like trip_miles, trip_time, and tips were scaled using standard normalization.
 
 #### Model Training and Hyper Parameter Tuning
 ##### Linear Regression
