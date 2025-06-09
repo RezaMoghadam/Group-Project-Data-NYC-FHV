@@ -1,6 +1,6 @@
 # NYC FHV Trip Data Analysis – DSC 232 Group Project
 ## Project Overview
-This project analyzes New York City’s High Volume For-Hire Vehicle (FHV) trip data — including Uber and Lyft — from 2019 to 2022 using PySpark for large-scale processing. The primary objective is to identify key factors that influence driver earnings across time, location, and trip characteristics. By uncovering these patterns, the analysis can provide insights into fair pricing for riders and optimal decision-making strategies for drivers in an urban landscape that extends beyond New York City.
+This project analyzes New York City’s High Volume For-Hire Vehicle (FHV) trip data — including Uber and Lyft — from 2019 to 2022 using PySpark for large-scale processing. The primary objective is to identify key factors that influence driver earnings across time, location, and trip characteristics. By uncovering these patterns, the analysis provides insights into fair pricing for riders and optimal decision-making strategies for drivers in urban landscapes that extend beyond New York City.
 
 ## Milestone Four  
 ### Written Report
