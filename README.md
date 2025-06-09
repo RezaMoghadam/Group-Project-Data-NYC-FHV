@@ -194,14 +194,14 @@ Variability in driver pay is more pronounced during longer trip durations.
 Missing values in fare components were removed.
 Categorical variables such as pickup and drop-off locations were encoded using one-hot encoding.
 Features like trip_miles, trip_time, and tips were scaled using standard normalization.
-Features: 
-trip_miles: total miles for passenger trip 
-trip_time: total time in seconds for passenger trip   
-base_passenger_fare: base passenger fare before tolls, tips, taxes, and fees  
-tips: total amount of tips received from passenger 
-hour & weekday: Extracted from Pickup_datetime
-PULocationID: TLC Taxi Zone in which the trip began 
-DOLocationID: TLC Taxi Zone in which the trip ended 
+Features:   
+trip_miles: total miles for passenger trip   
+trip_time: total time in seconds for passenger trip     
+base_passenger_fare: base passenger fare before tolls, tips, taxes, and fees    
+tips: total amount of tips received from passenger   
+hour & weekday: Extracted from Pickup_datetime  
+PULocationID: TLC Taxi Zone in which the trip began   
+DOLocationID: TLC Taxi Zone in which the trip ended   
 
 
 #### Model Training and Hyper Parameter Tuning
